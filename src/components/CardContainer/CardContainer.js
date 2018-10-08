@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import Card from '../Card/Card';
 
 const CardContainer = () => {
 
     return (
-
+      <div>
+        <Card />
+      </div>
     )
 }
 
