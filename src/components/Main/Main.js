@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Card extends Component {
+class Main extends Component {
   constructor() {
     super() 
 
@@ -16,4 +16,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default Main;
