@@ -6,7 +6,11 @@ class Landing extends Component {
     this.state = {  }
   }
   render() { 
-    return (  );
+    return ( 
+      <header className='l-landing m-landing'>
+        <h1>Hello</h1>
+      </header>
+     );
   }
 }
  
