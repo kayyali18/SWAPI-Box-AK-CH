@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 // import LandingPage from './LandingPage.LandingPage';
+import "../../styles/App.css"
+
 import Main from '../Main/Main';
 import Landing from '../Landing/Landing';
 

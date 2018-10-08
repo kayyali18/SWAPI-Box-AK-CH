@@ -13,10 +13,10 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <main className='l-main'>
         <NavBar />
         <CardContainer />
-      </div>
+      </main>
       )
   }
 }

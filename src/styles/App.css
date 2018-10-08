@@ -332,6 +332,17 @@ textarea {
   font: inherit;
 }
 
+.l-app {
+  display: grid;
+  grid-template-areas: "Landing" "Main" "Footer";
+}
+.l-app .l-landing {
+  grid-area: Landing;
+}
+.l-app .l-main {
+  grid-area: Main;
+}
+
 .hello {
   font-size: 20px;
 }
