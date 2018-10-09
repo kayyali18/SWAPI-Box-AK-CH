@@ -351,7 +351,7 @@ textarea {
   font-size: 20px;
 }
 
-.m-landing {
+.m-landing .scroll-up {
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -400,6 +400,36 @@ textarea {
   100% {
     transform: translateY(-100%);
   }
+}
+.nav-container {
+  background-color: #0c1b37;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.nav-container .buttons-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.nav-container .title {
+  font-family: "Notable", sans-serif;
+  color: yellow;
+  font-size: 3.5em;
+}
+.nav-container button {
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 2em;
+  margin: 0 10px;
+  text-transform: uppercase;
+  border-bottom: 5px solid black;
+  padding-bottom: 20px;
+  font-family: "Audiowide", cursive;
+}
+.nav-container button:hover {
+  border-bottom: 5px solid yellow;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=App.css.map */
