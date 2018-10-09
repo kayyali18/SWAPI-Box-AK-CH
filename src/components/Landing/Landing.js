@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class Landing extends Component {
   constructor(props) {
@@ -8,10 +9,14 @@ class Landing extends Component {
   render() { 
     return ( 
       <header className='l-landing m-landing'>
-        <h1>Hello</h1>
+        {this.displayRandomText}
       </header>
      );
   }
 }
  
 export default Landing;
+
+Landing.propTypes = {
+  films: PropTypes.array
+}
