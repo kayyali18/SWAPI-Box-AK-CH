@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
 class Button extends Component {
-  constructor() {
-    super() 
+  constructor(props) {
+    super(props) 
 
     this.state = {
-
+      isSelected: false
     }
   }
 
   render() {
     return (
-      <div>Button</div>
+      <button>{this.props.buttonText}</button>
       )
   }
 }
