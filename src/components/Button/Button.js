@@ -9,9 +9,15 @@ class Button extends Component {
     }
   }
 
+  handleClick = () => {
+    this.setState({
+      isSelected: !this.state.isSelected
+    })
+  }
+
   render() {
     return (
-      <button>{this.props.buttonText}</button>
+      <button onClick={() => {this.handleClick()}}>{this.props.buttonText}</button>
       )
   }
 }

@@ -25,6 +25,7 @@ class NavBar extends Component {
       return (
         <div>
           { buttons }
+          <button>Favorites</button>
         </div>
       )
     }
