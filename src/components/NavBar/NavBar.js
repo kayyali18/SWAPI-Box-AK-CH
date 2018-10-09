@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
-import '../../styles/3-modules/__nav-bar.sass'
 
 class NavBar extends Component {
   constructor(props) {

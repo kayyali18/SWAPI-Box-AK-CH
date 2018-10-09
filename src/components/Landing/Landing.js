@@ -56,5 +56,5 @@ class Landing extends Component {
 export default Landing
 
 Landing.propTypes = {
-  films: PropTypes.array
+  films: PropTypes.object
 }
