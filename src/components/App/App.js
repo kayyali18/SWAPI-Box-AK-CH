@@ -5,18 +5,33 @@ import fetch from 'node-fetch'
 
 import Main from '../Main/Main';
 import Landing from '../Landing/Landing';
+import fetchData from '../../api';
 
 class App extends Component {
   constructor() {
     super() 
-    this.baseURL = `https://swapi.co/api/`
     this.state = {
-      films: null
+      films: null,
+      categories: [
+        {category: 'planets', page: 1}, 
+        {category: 'people', page: 1}, 
+        {category: 'vehicles', page: 1}, 
+        {category: 'films', page: 1} 
+      ]
     }
   }
 
-  componentDidMount () {
-    this.getSWAPI(this.baseURL)
+  async componentDidMount () {
+    // const result = fetchData(this.baseURL)
+    // console.log(result)
+    const result = await this.fetchAllData()
+    const data = await 
+    this.setState({
+      planets: result[0],
+      people: result[1],
+      vehicles: result[2],
+      films: result[3]
+    })
   }
 
   getSWAPI = async baseURL => {
@@ -31,6 +46,14 @@ class App extends Component {
     catch (error) {
       console.log (error)
     }
+  }
+
+  fetchAllData = () => {
+    const { categories } = this.state;
+    const unresolvedPromises = categories.map(category => {
+      return fetchData(category.category, category.page)
+    })
+    return Promise.all(unresolvedPromises)
   }
 
   render() {
