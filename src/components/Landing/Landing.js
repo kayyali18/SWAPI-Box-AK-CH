@@ -46,7 +46,7 @@ class Landing extends Component {
       <header className='l-landing m-landing'>
         <img className='starwars-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png' alt='Star Wars Logo' />
         <div className='scroll-up'>
-          {/* {this.displayRandomText()} */}
+          {this.displayRandomText()}
         </div>
       </header>
     )
