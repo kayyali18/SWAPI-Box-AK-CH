@@ -366,9 +366,9 @@ textarea {
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
   /* We apply animation here */
-  -moz-animation: scroll-up 10s linear;
-  -webkit-animation: scroll-up 10s linear;
-  animation: scroll-up 10s linear;
+  -moz-animation: scroll-up 60s linear;
+  -webkit-animation: scroll-up 60s linear;
+  animation: scroll-up 60s linear;
 }
 
 /* Actual Animation Code*/
