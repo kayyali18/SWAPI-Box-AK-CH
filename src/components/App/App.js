@@ -11,12 +11,12 @@ class App extends Component {
     super() 
     this.baseURL = `https://swapi.co/api/`
     this.state = {
-      films: []
+      films: null
     }
   }
 
   componentDidMount () {
-    // this.getSWAPI(this.baseURL)
+    this.getSWAPI(this.baseURL)
   }
 
   getSWAPI = async baseURL => {
@@ -24,6 +24,9 @@ class App extends Component {
       const response = await fetch(`${baseURL}films/`)
       const filmData = await response.json()
       console.log (filmData)
+      this.setState({
+        films: filmData.results
+      })
     }
     catch (error) {
       console.log (error)
@@ -31,9 +34,10 @@ class App extends Component {
   }
 
   render() {
+    if (!this.state.films) return null
     return (
       <div className='l-app'>
-        <Landing />
+        <Landing films={this.state.films}/>
         <Main />
       </div>
       )
