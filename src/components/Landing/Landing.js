@@ -32,8 +32,8 @@ class Landing extends Component {
   }
 
   displayRandomText = () => {
-    let random = this.getRandom(0, 6)
-    return <h2 className='title'>{this.props.films[random].opening_crawl}</h2>
+    let random = this.getRandom(0, 6);
+    return <h2 className='title'>{this.props.films.results[random].opening_crawl}</h2>
   }
 
   getRandom = (min, max) => {
