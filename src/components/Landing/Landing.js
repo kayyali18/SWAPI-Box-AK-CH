@@ -20,7 +20,9 @@ class Landing extends Component {
     if (!this.props.films) return null
     return ( 
       <header className='l-landing m-landing'>
-        {this.displayRandomText()}
+        <div className='scroll-up'>
+          {this.displayRandomText()}
+        </div>
       </header>
      );
   }
