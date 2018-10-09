@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 
 class Button extends Component {
-  constructor() {
-    super() 
+  constructor(props) {
+    super(props) 
 
     this.state = {
-
+      isSelected: false
     }
+  }
+
+  handleClick = () => {
+    this.setState({
+      isSelected: !this.state.isSelected
+    })
   }
 
   render() {
     return (
-      <div>Button</div>
+      <div>
+        <button onClick={() => {this.handleClick()}}>{this.props.buttonText}</button>
+      }
+      </div>
       )
   }
 }
