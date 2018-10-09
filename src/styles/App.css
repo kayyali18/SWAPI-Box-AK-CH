@@ -337,18 +337,14 @@ textarea {
   grid-template-areas: "Landing" "Main";
 }
 .l-app .l-landing {
-  background-image: url("./assets/imgs/Star_Wars_Logo.png");
+  background-image: url("./assets/imgs/stars.jpeg");
   grid-area: Landing;
   height: 100vh;
   border-bottom: 3px solid black;
+  text-align: center;
 }
 .l-app .l-main {
   grid-area: Main;
-}
-
-.starwars-logo {
-  position: absolute;
-  margin: auto;
 }
 
 .hello {
@@ -359,13 +355,16 @@ textarea {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  font-size: 60px;
+  color: #f9f6f6;
 }
 .m-landing h2 {
+  color: #FFD700;
   position: absolute;
   width: 100%;
   height: 100%;
   margin: 0;
-  line-height: 50px;
+  line-height: 100px;
   text-align: center;
   /* Element's starting position */
   -moz-transform: translateY(100%);
