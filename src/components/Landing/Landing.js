@@ -33,7 +33,7 @@ class Landing extends Component {
 
   displayRandomText = () => {
     let random = this.getRandom(0, 6);
-    return <h2 className='title'>{this.props.films.results[random].opening_crawl}</h2>
+    return <p className='title'>{this.props.films.results[random].opening_crawl}</p>
   }
 
   getRandom = (min, max) => {
@@ -45,8 +45,11 @@ class Landing extends Component {
     return ( 
       <header className='l-landing m-landing'>
         <img className='starwars-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png' alt='Star Wars Logo' />
-        <div className='scroll-up'>
+        <div className='fade'></div>
+        <div className='star-wars'>
+          <div className='crawl'>
           {this.displayRandomText()}
+          </div>  
         </div>
       </header>
     )

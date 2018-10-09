@@ -351,15 +351,44 @@ textarea {
   font-size: 20px;
 }
 
+.m-landing {
+  overflow: hidden;
+}
+.m-landing .fade {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+.m-landing .star-wars {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 800px;
+  color: #feda4a;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
+.m-landing .crawl {
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+}
 .m-landing .scroll-up {
-  height: 80vh;
+  height: 65vh;
   overflow: hidden;
   font-size: 60px;
-  color: #f9f6f6;
 }
 .m-landing h2 {
   color: #FFD700;
-  position: absolute;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -370,35 +399,29 @@ textarea {
   -webkit-transform: translateY(50%);
   transform: translateY(50%);
   /* We apply animation here */
-  -moz-animation: scroll-up 60s linear;
-  -webkit-animation: scroll-up 60s linear;
-  animation: scroll-up 60s linear;
+  -moz-animation: scroll-up 10s linear;
+  -webkit-animation: scroll-up 10s linear;
+  animation: scroll-up 10s linear infinite;
   overflow: hidden;
 }
 
 /* Actual Animation Code*/
-@-moz-keyframes scroll-up {
-  0% {
-    -moz-transform: translateY(100%);
-  }
-  100% {
-    -moz-transform: translateY(-100%);
-  }
-}
-@-webkit-keyframes scroll-up {
-  0% {
-    -webkit-transform: translateY(100%);
-  }
-  100% {
-    -webkit-transform: translateY(-100%);
-  }
-}
 @keyframes scroll-up {
   0% {
     transform: translateY(100%);
   }
   100% {
     transform: translateY(-100%);
+  }
+}
+@keyframes crawl {
+  0% {
+    top: -100px;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
   }
 }
 .nav-container {
