@@ -351,54 +351,49 @@ textarea {
   font-size: 20px;
 }
 
-.m-landing .scroll-up {
-  height: 80vh;
+.m-landing {
   overflow: hidden;
-  font-size: 60px;
-  color: #f9f6f6;
 }
-.m-landing h2 {
-  color: #FFD700;
-  position: absolute;
+.m-landing .fade {
+  position: relative;
   width: 100%;
-  height: 100%;
-  margin: 0;
-  line-height: 100px;
-  text-align: center;
-  /* Element's starting position */
-  -moz-transform: translateY(50%);
-  -webkit-transform: translateY(50%);
-  transform: translateY(50%);
-  /* We apply animation here */
-  -moz-animation: scroll-up 60s linear;
-  -webkit-animation: scroll-up 60s linear;
-  animation: scroll-up 60s linear;
-  overflow: hidden;
+  min-height: 60vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+.m-landing .star-wars {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 800px;
+  color: #feda4a;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
+.m-landing .crawl {
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+}
+.m-landing .starwars-logo {
+  margin: 40px 10px;
 }
 
-/* Actual Animation Code*/
-@-moz-keyframes scroll-up {
+@keyframes crawl {
   0% {
-    -moz-transform: translateY(100%);
+    top: -100px;
+    transform: rotateX(20deg) translateZ(0);
   }
   100% {
-    -moz-transform: translateY(-100%);
-  }
-}
-@-webkit-keyframes scroll-up {
-  0% {
-    -webkit-transform: translateY(100%);
-  }
-  100% {
-    -webkit-transform: translateY(-100%);
-  }
-}
-@keyframes scroll-up {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(-100%);
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
   }
 }
 .nav-container {
