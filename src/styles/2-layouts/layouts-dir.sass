@@ -11,4 +11,23 @@
   
   .l-main 
     grid-area: Main
+    display: grid
+    grid-template-areas: "display nav"
+    grid-template-columns: 8.5fr 1.5fr
+    height: 100vh
 
+    .l-card-container
+      grid-area: display
+    
+    .l-nav
+      grid-area: nav
+      height: 100%
+      display: grid
+      grid-template-areas: "Logo-slash-Trivia" "btns"
+      grid-template-rows: 3.5fr 6.5fr
+
+      .nav-logo
+        grid-area: Logo-slash-Trivia
+
+      .nav-btns
+        grid-area: btns
