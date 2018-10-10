@@ -1,9 +1,9 @@
-import React, { Component } from "react"
-import Button from "../Button/Button"
+import React, { Component } from "react";
+import Button from "../Button/Button";
 
 class NavBar extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       buttonText: {
@@ -11,11 +11,11 @@ class NavBar extends Component {
         people: "People",
         vehicles: "Vehicles"
       }
-    }
+    };
   }
 
   render() {
-    const { buttonText } = this.state
+    const { buttonText } = this.state;
     const buttons = Object.keys(buttonText).map(category => {
       return (
         <Button
@@ -23,21 +23,47 @@ class NavBar extends Component {
           buttonText={buttonText[category]}
           key={buttonText[category]}
         />
-      )
-    })
+      );
+    });
 
     return (
-      <nav className={"nav-container l-nav"} id='nav'>
-        <div className='nav-logo'><img className='nav-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png' alt='Star Wars Logo' /></div>
-        <div className={"nav-btns"}>
-          {buttons}
-          <div>
-          <button>Favorites</button>
+      <div className="l-nav side-section">
+        <div className="nav-logo">
+          <img
+            className="nav-logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
+            alt="Star Wars Logo"
+          />
+        </div>
+        <div id="burger-container">
+          <div id="burger">
+            <div className="bun top" />
+            <div className="filling" />
+            <div className="bun bottom" />
           </div>
         </div>
-      </nav>
-    )
+        <nav className={"nav-container"} id="nav">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li className="green">
+              <a href="#">Jedi</a>
+            </li>
+            <li className="red">
+              <a href="#">Sith</a>
+            </li>
+            <li className="yellow">
+              <a href="#">Sentinel</a>
+            </li>
+            <li className="purple">
+              <a href="#">Samuel L. Jackson</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    );
   }
 }
 
-export default NavBar
+export default NavBar;
