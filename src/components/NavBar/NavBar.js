@@ -1,9 +1,12 @@
-import React, { Component } from "react";
-import Button from "../Button/Button";
+import React, { Component } from "react"
+import { findDOMNode } from 'react-dom'
+import $ from 'jquery'
+
+import Button from "../Button/Button"
 
 class NavBar extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       buttonText: {
@@ -11,11 +14,25 @@ class NavBar extends Component {
         people: "People",
         vehicles: "Vehicles"
       }
-    };
+    }
+  }
+
+  handleToggle = () => {
+    if (this.state.burger !== 'active'){
+      this.setState({
+        burger: 'active',
+        navClass: 'show'
+      })
+    } else {
+      this.setState({
+        burger: '',
+        navClass: ''
+      })
+    }
   }
 
   render() {
-    const { buttonText } = this.state;
+    const { buttonText } = this.state
     const buttons = Object.keys(buttonText).map(category => {
       return (
         <Button
@@ -23,8 +40,8 @@ class NavBar extends Component {
           buttonText={buttonText[category]}
           key={buttonText[category]}
         />
-      );
-    });
+      )
+    })
 
     return (
       <div className="l-nav side-section">
@@ -35,14 +52,14 @@ class NavBar extends Component {
             alt="Star Wars Logo"
           />
         </div>
-        <div id="burger-container">
-          <div id="burger">
+        <div id="burger-container" onClick={this.handleToggle}>
+          <div id="burger" className={this.state.burger}>
             <div className="bun top" />
             <div className="filling" />
             <div className="bun bottom" />
           </div>
         </div>
-        <nav className={"nav-container"} id="nav">
+        <nav ref={`toggle`} className={`nav-container ${this.state.navClass}`} id="nav">
           <ul>
             <li>
               <a href="#">Home</a>
@@ -62,8 +79,8 @@ class NavBar extends Component {
           </ul>
         </nav>
       </div>
-    );
+    )
   }
 }
 
-export default NavBar;
+export default NavBar
