@@ -12,20 +12,30 @@
       width: 200px
 
   .nav-btns
-    background-color: $starwars-yellow
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: flex-end
+
+    div
+      width: 100%
+      &:hover
+        button
+          cursor: pointer
+          left: 0%
 
   button 
     background-color: $sweet-maroon
+
+    border-left: 5px solid yellow
     color: $starwars-gold
     border: none
-    font-size: 2em
-    // font-family: 'Orbitron', 'Notable', sans-serif
-    margin: 0 10px
+    font-size: 18pt
+    left: 90%
+    position: relative
+    padding: 10px
+    text-align: right
     text-transform: uppercase
-    border-bottom: 5px solid black
-    padding-bottom: 20px
+    transition: .2s ease-in
     font-family: 'Audiowide', cursive
-
-    &:hover
-      border-bottom: 5px solid yellow
-      cursor: pointer
+    width: 100%

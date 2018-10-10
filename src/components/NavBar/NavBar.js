@@ -31,7 +31,9 @@ class NavBar extends Component {
         <div className='nav-logo'><img className='nav-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png' alt='Star Wars Logo' /></div>
         <div className={"nav-btns"}>
           {buttons}
+          <div>
           <button>Favorites</button>
+          </div>
         </div>
       </nav>
     )
