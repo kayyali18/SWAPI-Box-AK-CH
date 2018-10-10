@@ -437,8 +437,7 @@ textarea {
   width: 80px;
   height: 80px;
   position: relative;
-  top: 0%;
-  left: 50%;
+  margin: auto;
 }
 
 #burger {
@@ -450,46 +449,46 @@ textarea {
   width: 100%;
   height: 100%;
 }
-#burger .bun .filling, #burger .bun {
+#burger .filling, #burger .bun {
   display: block;
-  position: relative;
+  position: absolute;
   left: 50%;
   transform: translate(-50%, -50%) rotate(0deg);
   height: 10%;
   width: 70%;
   transform-origin: 50% 50%;
-  transition: top 0.4s ease 0.4, transform 0.4s ease 0.4s;
+  transition: top 0.4s ease 0.4s, transform 0.4s ease 0.4s;
 }
-#burger .bun .filling:before, #burger .bun:before, #burger .bun .filling:after, #burger .bun:after {
+#burger .filling:before, #burger .bun:before, #burger .filling:after, #burger .bun:after {
   content: "";
   display: block;
   height: 40%;
   background: white;
-  position: relative;
+  position: absolute;
   top: 50%;
   transform: translate(0%, -45%);
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
-#burger .bun .filling:before, #burger .bun:before {
+#burger .filling:before, #burger .bun:before {
   left: 0;
-  width: calc(-1px + 755);
+  width: calc(-1px + 75%);
   border-radius: 10px 0px 0px 10px;
 }
-#burger .bun .filling:after, #burger .bun:after {
+#burger .filling:after, #burger .bun:after {
   right: 0;
   width: calc(-1px + 25%);
 }
 #burger:hover .bun.top:before {
-  background: #ffeeee;
-  box-shadow: #ff0000 0px 0px 10px 1px;
+  background: #FEE;
+  box-shadow: #F00 0px 0px 10px 1px;
 }
 #burger:hover .bun.bottom:before {
-  background: #ddffff;
-  box-shadow: #00ffff 0px 0px 10px 1px;
+  background: #DFF;
+  box-shadow: #0FF 0px 0px 10px 1px;
 }
 #burger:hover .filling:before {
-  background: #eeffee;
-  box-shadow: #00ff00 0px 0px 10px 1px;
+  background: #EFE;
+  box-shadow: #0F0 0px 0px 10px 1px;
 }
 #burger .bun.top {
   top: 25%;
@@ -497,23 +496,23 @@ textarea {
 #burger .bun.bottom {
   top: 75%;
 }
-#burger .bun .filling {
+#burger .filling {
   top: 50%;
   transform: translate(-50%, -50%) rotate(180deg);
   animation: green-ls-out 0.8s ease forwards;
 }
-#burger .bun.active .bun {
+#burger.active .bun {
   border-radius: 3px;
   top: 50%;
   transition: top 0.4s ease, transform 0.4s ease;
 }
-#burger .bun.active .bun.top {
+#burger.active .bun.top {
   transform: translate(-50%, -50%) rotate(-225deg);
 }
-#burger .bun.active .bun.bottom {
+#burger.active .bun.bottom {
   transform: translate(-50%, -50%) rotate(405deg);
 }
-#burger .bun.active .filling {
+#burger.active .filling {
   transform: translate(-50%, -50%) rotate(-90deg);
   animation: green-ls-in 0.8s ease forwards;
 }
@@ -521,7 +520,7 @@ textarea {
 nav {
   font-family: Open Sans;
   color: white;
-  background: #111;
+  background: #222;
   position: relative;
   transform: translatex(100%);
   transition: transform 0.2s ease;
@@ -545,6 +544,7 @@ nav ul li {
   padding: 0px;
   padding-left: 0px;
   margin: 16px 0px;
+  text-align: center;
   width: 0;
   border-radius: 0px 100px 100px 0px;
   transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;

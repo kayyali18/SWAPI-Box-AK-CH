@@ -1,6 +1,4 @@
 import React, { Component } from "react"
-import { findDOMNode } from 'react-dom'
-import $ from 'jquery'
 
 import Button from "../Button/Button"
 

@@ -20,10 +20,9 @@
   width: 80px
   height: 80px
   position: relative
-  top: 0%
-  left: 50%
+  margin: auto
 
-#burger
+#burger 
   cursor: pointer
   opacity: 0
   animation: fadein 0.2s ease 1s forwards
@@ -31,84 +30,96 @@
   position: relative
   width: 100%
   height: 100%
-  %burgersection
+  %burgersection 
     display: block
-    position: relative
+    position: absolute
     left: 50%
-    transform: translate(-50%, -50%) rotate(0deg)
+    transform: translate(-50%,-50%) rotate(0deg)
     height: 10%
     width: 70%
     transform-origin: 50% 50%
-    transition: top 0.4s ease 0.4, transform 0.4s ease 0.4s
-    &:before, &:after
-      content: ''
+    transition: top 0.4s ease 0.4s,transform 0.4s ease 0.4s
+    &:before, &:after 
+      content: ""
       display: block
       height: 40%
       background: white
-      position: relative
+      position: absolute
       top: 50%
-      transform: translate(0%, -45%)
+      transform: translate(0%,-45%)
       transition: background 0.2s ease, box-shadow 0.2s ease
-
-    &:before
+    
+    &:before 
       left: 0
-      width: calc(-1px + 755)
+      width: calc(-1px + 75%)
       border-radius: 10px 0px 0px 10px
-    &:after
+    
+    &:after 
       right: 0
       width: calc(-1px + 25%)
+    
   
-  &:hover
-    .bun
-      &.top:before
-        background: #ffeeee
-        box-shadow: #ff0000 0px 0px 10px 1px
-      &.bottom:before
-        background: #ddffff
-        box-shadow:  #00ffff 0px 0px 10px 1px
-
-    .filling
-      &:before
-        background: #eeffee
-        box-shadow: #00ff00 0px 0px 10px 1px
-
-  .bun
-    @extend %burgersection
-    &.top
-      top: 25%
-
-    &.bottom
-      top: 75%
-
-    .filling
-      @extend %burgersection
-      top: 50%
-      transform: translate(-50%, -50%) rotate(180deg)
-      animation: green-ls-out 0.8s ease forwards
-
-    &.active
-      .bun
-        border-radius: 3px
-        top:50%
-        transition: top 0.4s ease, transform 0.4s ease
-        &.top
-          transform: translate(-50%,-50%) rotate(-225deg)
-        
-        &.bottom
-          transform: translate(-50%,-50%) rotate(405deg)
-        
+  
+  &:hover 
+    .bun 
+      &.top:before 
+        background: #FEE
+        box-shadow: #F00 0px 0px 10px 1px
       
-      .filling
-        transform: translate(-50%,-50%) rotate(-90deg)
-        animation: green-ls-in 0.8s ease forwards
+      &.bottom:before 
+        background: #DFF
+        box-shadow: #0FF 0px 0px 10px 1px
+      
+    
+    .filling 
+      &:before 
+        background: #EFE
+        box-shadow: #0F0 0px 0px 10px 1px
+      
+    
+  
+  
+  .bun 
+    @extend %burgersection
+    &.top 
+      top: 25%
+    
+    &.bottom 
+      top: 75%
+    
+  
+  .filling 
+    @extend %burgersection
+    top: 50%
+    transform: translate(-50%,-50%) rotate(180deg)
+    animation: green-ls-out 0.8s ease forwards
 
+  
+  
+  &.active 
+    .bun 
+      border-radius: 3px
+      top: 50%
+      transition: top 0.4s ease, transform 0.4s ease
+      &.top 
+        transform: translate(-50%,-50%) rotate(-225deg)
+      
+      &.bottom 
+        transform: translate(-50%,-50%) rotate(405deg)
+      
+    
+    .filling 
+      transform: translate(-50%,-50%) rotate(-90deg)
+      animation: green-ls-in 0.8s ease forwards
+    
+  
 nav  
   &.show  
     transform: translatex(0%) 
    
   font-family: Open Sans 
   color: white 
-  background: #111 
+  background: #222 
   position: relative 
   transform: translatex(100%) 
   transition: transform 0.2s ease 
@@ -127,6 +138,7 @@ nav
       padding: 0px 
       padding-left: 0px 
       margin: 16px 0px 
+      text-align: center
       width: 0 
       border-radius: 0px 100px 100px 0px 
       transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease 
