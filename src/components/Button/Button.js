@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class Button extends Component {
   constructor(props) {
@@ -19,10 +20,13 @@ class Button extends Component {
     return (
       <div>
         <button onClick={() => {this.handleClick()}}>{this.props.buttonText}</button>
-      }
       </div>
       )
   }
 }
 
 export default Button;
+
+Button.propTypes = {
+  buttonText: PropTypes.string
+}

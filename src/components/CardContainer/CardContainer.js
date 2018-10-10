@@ -1,13 +1,13 @@
-import React from 'react';
-import Card from '../Card/Card';
+import React from 'react'
+import Card from '../Card/Card'
 
 const CardContainer = () => {
 
-    return (
-      <div>
-        <Card />
-      </div>
-    )
+  return (
+    <section className='l-card-container card-container'>
+      <Card />
+    </section>
+  )
 }
 
-export default CardContainer;
+export default CardContainer
