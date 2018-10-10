@@ -345,6 +345,26 @@ textarea {
 }
 .l-app .l-main {
   grid-area: Main;
+  display: grid;
+  grid-template-areas: "display nav";
+  grid-template-columns: 8.5fr 1.5fr;
+  height: 100vh;
+}
+.l-app .l-main .l-card-container {
+  grid-area: display;
+}
+.l-app .l-main .l-nav {
+  grid-area: nav;
+  height: 100%;
+  display: grid;
+  grid-template-areas: "Logo-slash-Trivia" "btns";
+  grid-template-rows: 3.5fr 6.5fr;
+}
+.l-app .l-main .l-nav .nav-logo {
+  grid-area: Logo-slash-Trivia;
+}
+.l-app .l-main .l-nav .nav-btns {
+  grid-area: btns;
 }
 
 .hello {
@@ -401,22 +421,22 @@ textarea {
 }
 .nav-container {
   background-color: #0c1b37;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
 }
-.nav-container .buttons-container {
+.nav-container .nav-logo {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
 }
-.nav-container .title {
-  font-family: "Notable", sans-serif;
-  color: yellow;
-  font-size: 3.5em;
+.nav-container .nav-logo img {
+  height: 100px;
+  width: 200px;
+}
+.nav-container .nav-btns {
+  background-color: #FFD700;
 }
 .nav-container button {
-  background-color: black;
-  color: white;
+  background-color: #8c2338;
+  color: #feda4a;
   border: none;
   font-size: 2em;
   margin: 0 10px;
