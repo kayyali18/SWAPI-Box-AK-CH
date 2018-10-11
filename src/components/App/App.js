@@ -10,7 +10,10 @@ class App extends Component {
   constructor() {
     super() 
     this.state = {
-      films: null,
+      planets: [],
+      people: [],
+      vehicles: [],
+      films: undefined,
       categories: [
         {category: 'planets', page: 1}, 
         {category: 'people', page: 1}, 
