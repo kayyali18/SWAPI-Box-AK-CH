@@ -5,13 +5,22 @@ import { shallow, configure } from "enzyme"
 
 describe("App", () => {
   let wrapper
+  let mockCategories
 
   beforeEach(() => {
     wrapper = shallow(<App />)
+    mockCategories = {
+      categories: [
+        {category: 'planets', page: 1}, 
+        {category: 'people', page: 2}, 
+        {category: 'vehicles', page: 1}, 
+        {category: 'films', page: 1} 
+      ]
+    }
   })
 
   it("renders without crashing", () => {
-    console.log ('We saved the world just FYI')
+    console.log('We saved the world just FYI')
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -29,5 +38,8 @@ describe("App", () => {
     expect(wrapper.state()).toEqual(expected)
   })
 
-  it("should call fetchAllData with the correct parameters in componentDidMount", () => {})
+  it("should call fetchAllData with the correct parameters in componentDidMount", () => {
+
+    
+  })
 })
