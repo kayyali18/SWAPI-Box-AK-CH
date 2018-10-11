@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders without crashing 1`] = `""`;
-
 exports[`App should set state with the correct data 1`] = `
 Object {
   "categories": Array [

@@ -21,7 +21,7 @@ class Button extends Component {
       <div>
         <button onClick={() => {this.handleClick()}}>{this.props.buttonText}</button>
       </div>
-      )
+    )
   }
 }
 
