@@ -348,7 +348,7 @@ textarea {
   display: grid;
   grid-template-areas: "nav" "display";
   grid-template-rows: 1.5fr 8.5fr;
-  height: 100vh;
+  height: 100%;
 }
 .l-app .l-main .l-card-container {
   grid-area: display;
@@ -389,20 +389,19 @@ textarea {
   display: grid;
   grid-template-rows: 1fr;
   grid-gap: 1rem;
-  overflow: scroll;
 }
 .l-card-container .display-card {
   display: grid;
 }
 .l-card-container .display-card:nth-child(odd) {
   grid-template-columns: 1fr 8.5fr;
+  grid-template-areas: "img card";
 }
 .l-card-container .display-card:nth-child(odd) .card-content {
-  grid-column: 2/3;
+  grid-area: card;
 }
 .l-card-container .display-card:nth-child(odd) .card-image {
-  grid-column: 1/2;
-  height: 100%;
+  grid-area: img;
 }
 .l-card-container .display-card:nth-child(even) {
   grid-template-columns: 8.5fr 1fr;
@@ -680,6 +679,7 @@ nav ul li.yellow:hover {
 }
 .l-card-container .card-image {
   background-image: url("./assets/imgs/starwars.jpeg");
+  background-size: contain;
 }
 
 /*# sourceMappingURL=App.css.map */

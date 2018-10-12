@@ -14,7 +14,7 @@
     display: grid
     grid-template-areas: "nav" "display"
     grid-template-rows: 1.5fr 8.5fr 
-    height: 100vh
+    height: 100%
 
     .l-card-container
       grid-area: display
@@ -57,7 +57,7 @@
   display: grid
   grid-template-rows: 1fr
   grid-gap: 1rem
-  overflow: scroll
+  // overflow: scroll
 
   .display-card
     display: grid
@@ -65,13 +65,14 @@
 
     &:nth-child(odd)
       grid-template-columns: 1fr 8.5fr
+      grid-template-areas: "img card"
          
       .card-content
-        grid-column: 2/3
+        grid-area: card
       
       .card-image
-        grid-column: 1/2
-        height: 100%
+        grid-area: img
+        // height: 100px
 
         // position: relative
         // top: 10%
