@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders without crashing 1`] = `
+<div
+  className="l-nav side-section"
+>
+  <div
+    className="nav-logo"
+  >
+    <img
+      alt="Star Wars Logo"
+      className="nav-logo"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
+    />
+  </div>
+  <div
+    id="burger-container"
+    onClick={[Function]}
+  >
+    <div
+      id="burger"
+    >
+      <div
+        className="bun top"
+      />
+      <div
+        className="filling"
+      />
+      <div
+        className="bun bottom"
+      />
+    </div>
+  </div>
+  <nav
+    className="nav-container undefined"
+    id="nav"
+  >
+    <ul>
+      <li>
+        <a
+          href="#"
+        >
+          Home
+        </a>
+      </li>
+      <li
+        className="green"
+      >
+        <a
+          href="#"
+        >
+          Jedi
+        </a>
+      </li>
+      <li
+        className="red"
+      >
+        <a
+          href="#"
+        >
+          Sith
+        </a>
+      </li>
+      <li
+        className="yellow"
+      >
+        <a
+          href="#"
+        >
+          Sentinel
+        </a>
+      </li>
+      <li
+        className="purple"
+      >
+        <a
+          href="#"
+        >
+          Samuel L. Jackson
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

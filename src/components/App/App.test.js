@@ -19,27 +19,10 @@ describe("App", () => {
     }
   })
 
-  it("renders without crashing", () => {
-    console.log('We saved the world just FYI')
-    expect(wrapper).toMatchSnapshot()
-  })
+  it("should set state with the correct data", async () => {
+    await wrapper.instance().componentDidMount();
 
-  it("has an initial state", () => {
-    const expected = {
-      films: null,
-      categories: [
-        { category: "planets", page: 1 },
-        { category: "people", page: 1 },
-        { category: "vehicles", page: 1 },
-        { category: "films", page: 1 }
-      ]
-    }
-
-    expect(wrapper.state()).toEqual(expected)
-  })
-
-  it("should call fetchAllData with the correct parameters in componentDidMount", () => {
-
+    expect(wrapper.state()).toMatchSnapshot()
     
   })
 })
