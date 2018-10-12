@@ -1,33 +1,92 @@
 .l-app 
   display: grid
   grid-template-areas: "Landing""Main"
-
+  background-image: url('./assets/imgs/stars.jpeg')
+  height: 100%
+  width: 100vw
   .l-landing
-    background-image: url('./assets/imgs/stars.jpeg')
     grid-area: Landing
     height: 100vh
-    border-bottom: 3px solid black
     text-align: center
   
   .l-main 
     grid-area: Main
     display: grid
-    grid-template-areas: "nav display"
-    grid-template-columns: 1.5fr 8.5fr 
-    height: 100vh
+    grid-template-areas: "nav" "display"
+    grid-template-rows: 350px 8.5fr 
+    height: 100%
 
     .l-card-container
       grid-area: display
     
     .l-nav
       grid-area: nav
-      height: 100%
       display: grid
-      grid-template-areas: "Logo-slash-Trivia" "burger" "nav"
-      grid-template-rows: 2fr 1fr 7fr
+      grid-template-areas: "burger" "nav-container"
+      grid-template-rows: 1fr 2fr
+      // height: 210px
 
-    .nav-logo
-      grid-area: Logo-slash-Trivia
+    .nav-container
+      height: 100%
+      grid-area: nav-container
 
-    .nav-btns
-      grid-area: btns
+    
+    .l-menu
+      display: grid
+      grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . ."
+      grid-template-columns: repeat(2, calc(100%/7)) repeat(3, calc(100%/7)) repeat(2, calc(100%/7))
+      // grid-auto-columns: 1fr
+      justify-items: start
+      padding: 2rem 0
+
+      height: 100%
+    
+
+      li 
+        &:first-child
+          grid-area: Home
+      li 
+        &:nth-child(2)
+          grid-area: Logo
+
+        &:nth-child(3)
+          grid-area: People
+
+        &:nth-child(4)
+          grid-area: Planets
+        
+        &:nth-child(5)
+          grid-area: Vehicles
+
+        &:nth-child(6)
+          grid-area: Favourites
+
+
+.l-card-container
+  display: grid
+  grid-template-rows: 1fr
+  grid-gap: 1rem
+  // overflow: scroll
+
+  .display-card
+    display: grid
+    height: 250px
+    
+
+    &:nth-child(odd)
+      grid-template-columns: 1fr 8.5fr
+      grid-template-areas: "img card"
+         
+      .card-content
+        grid-area: card
+      
+      .card-image
+        grid-area: img
+        // height: 100px
+
+        // position: relative
+        // top: 10%
+
+    &:nth-child(even)
+      grid-template-columns: 8.5fr 1fr
+

@@ -6,15 +6,11 @@
     text-shadow: $color 0px 0px 6px, $color 0px 0px 10px
   
 .nav-logo
-  display: flex
-  align-items: center
-  justify-content: center
-  img
-    height: 100px
-    width: 200px
+  height: 50px
+  width: 10vw
 
 .side-section
-  background-color: $background-navy
+  // background-image: url('./assets/imgs/stars.jpeg')
 
 #burger-container
   width: 80px
@@ -114,45 +110,53 @@
     
   
 nav  
+  background-color: white
+
   &.show  
-    transform: translatex(0%) 
-   
+    transform: translatey(0%) 
+    animation: fadein 1s 
+    display: inline
+
+  
   font-family: 'Audiowide', cursive
   color: white 
   background: #222 
   position: relative 
-  transform: translatex(-100%) 
-  transition: transform 0.2s ease 
-  bottom: 0px 
-  padding-left: 16px 
-  width: 300px
-  ul  
+  transform: translatey(-3000%) 
+  transition: transform 0.5s ease 
+  // bottom: 0px 
+  .menu  
+
+    width: 100vw
     list-style: none 
     padding: 0 
+    // text-align: center
     margin: 0 
+    margin-block-start: 0
+    margin-block-end: 0
     // font-weight:bolder 
-    li  
+    .menu-btn  
       +lightsaber(#4df) 
-      font-size: 1.75em 
-      line-height: 1.25em 
-      padding: 0px 
-      padding-left: 0px 
-      margin: 16px 0px 
+      font-size: 16pt 
+      line-height: 16pt
+      padding: 0px
+      height: 20px
+      margin: 26px 0px 
       text-align: center
-      width: 0 
+      // margin: 20px auto
+      max-width: 200px
+      width: 0%
       border-radius: 0px 100px 100px 0px 
       transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease 
       &:hover  
-        width: 100% 
-        padding: 0px 0px 0px 16px 
+        width: 80% 
         color:  black 
        
       a  
-        display: block 
         text-decoration: none 
-        width: 300px 
         color: inherit 
-        padding-right: 16px 
+        max-width: 200px
+        padding-left: 16px
        
       &.green  
         @include lightsaber(#0F0) 
@@ -166,7 +170,9 @@ nav
       &.yellow  
         @include lightsaber(#FF0) 
        
-     
+
+#logo-parent
+  text-align: center
    
  
 

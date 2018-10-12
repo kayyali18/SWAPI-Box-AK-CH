@@ -1,0 +1,25 @@
+=lightsaber($color)
+  background: mix($color, #fff, 10%)
+  $back: mix($color, #fff, 10%)
+  box-shadow: $back 0px 0px 0px 2px
+  &:hover
+    box-shadow: $color 0px 0px 20px 2px
+    // text-shadow: $color 0px 0px 6px, $color 0px 0px 10px
+
+.l-card-container
+
+  .display-card
+    &:nth-child(1n)
+      +lightsaber(#4df) 
+
+    &:nth-child(2n)
+      // +lightsaber(#0F0) 
+
+    &:nth-child(2n)
+      +lightsaber(#F00) 
+
+  
+  .card-image
+    background-image: url('./assets/imgs/starwars.jpeg')
+    background-size: cover
+    background-position: center

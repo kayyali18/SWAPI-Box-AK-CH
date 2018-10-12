@@ -335,36 +335,83 @@ textarea {
 .l-app {
   display: grid;
   grid-template-areas: "Landing" "Main";
+  background-image: url("./assets/imgs/stars.jpeg");
+  height: 100%;
+  width: 100vw;
 }
 .l-app .l-landing {
-  background-image: url("./assets/imgs/stars.jpeg");
   grid-area: Landing;
   height: 100vh;
-  border-bottom: 3px solid black;
   text-align: center;
 }
 .l-app .l-main {
   grid-area: Main;
   display: grid;
-  grid-template-areas: "nav display";
-  grid-template-columns: 1.5fr 8.5fr;
-  height: 100vh;
+  grid-template-areas: "nav" "display";
+  grid-template-rows: 350px 8.5fr;
+  height: 100%;
 }
 .l-app .l-main .l-card-container {
   grid-area: display;
 }
 .l-app .l-main .l-nav {
   grid-area: nav;
-  height: 100%;
   display: grid;
-  grid-template-areas: "Logo-slash-Trivia" "burger" "nav";
-  grid-template-rows: 2fr 1fr 7fr;
+  grid-template-areas: "burger" "nav-container";
+  grid-template-rows: 1fr 2fr;
 }
-.l-app .l-main .nav-logo {
-  grid-area: Logo-slash-Trivia;
+.l-app .l-main .nav-container {
+  height: 100%;
+  grid-area: nav-container;
 }
-.l-app .l-main .nav-btns {
-  grid-area: btns;
+.l-app .l-main .l-menu {
+  display: grid;
+  grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . .";
+  grid-template-columns: repeat(2, calc(100%/7)) repeat(3, calc(100%/7)) repeat(2, calc(100%/7));
+  justify-items: start;
+  padding: 2rem 0;
+  height: 100%;
+}
+.l-app .l-main .l-menu li:first-child {
+  grid-area: Home;
+}
+.l-app .l-main .l-menu li:nth-child(2) {
+  grid-area: Logo;
+}
+.l-app .l-main .l-menu li:nth-child(3) {
+  grid-area: People;
+}
+.l-app .l-main .l-menu li:nth-child(4) {
+  grid-area: Planets;
+}
+.l-app .l-main .l-menu li:nth-child(5) {
+  grid-area: Vehicles;
+}
+.l-app .l-main .l-menu li:nth-child(6) {
+  grid-area: Favourites;
+}
+
+.l-card-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+}
+.l-card-container .display-card {
+  display: grid;
+  height: 250px;
+}
+.l-card-container .display-card:nth-child(odd) {
+  grid-template-columns: 1fr 8.5fr;
+  grid-template-areas: "img card";
+}
+.l-card-container .display-card:nth-child(odd) .card-content {
+  grid-area: card;
+}
+.l-card-container .display-card:nth-child(odd) .card-image {
+  grid-area: img;
+}
+.l-card-container .display-card:nth-child(even) {
+  grid-template-columns: 8.5fr 1fr;
 }
 
 .hello {
@@ -420,17 +467,8 @@ textarea {
   }
 }
 .nav-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-logo img {
-  height: 100px;
-  width: 200px;
-}
-
-.side-section {
-  background-color: #0c1b37;
+  height: 50px;
+  width: 10vw;
 }
 
 #burger-container {
@@ -518,84 +556,90 @@ textarea {
 }
 
 nav {
+  background-color: white;
   font-family: "Audiowide", cursive;
   color: white;
   background: #222;
   position: relative;
-  transform: translatex(-100%);
-  transition: transform 0.2s ease;
-  bottom: 0px;
-  padding-left: 16px;
-  width: 300px;
+  transform: translatey(-3000%);
+  transition: transform 0.5s ease;
 }
 nav.show {
-  transform: translatex(0%);
+  transform: translatey(0%);
+  animation: fadein 1s;
+  display: inline;
 }
-nav ul {
+nav .menu {
+  width: 100vw;
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
-nav ul li {
+nav .menu .menu-btn {
   background: #ecfcff;
   box-shadow: #4df 0px 0px 0px 2px;
-  font-size: 1.75em;
-  line-height: 1.25em;
+  font-size: 16pt;
+  line-height: 16pt;
   padding: 0px;
-  padding-left: 0px;
-  margin: 16px 0px;
+  height: 20px;
+  margin: 26px 0px;
   text-align: center;
-  width: 0;
+  max-width: 200px;
+  width: 0%;
   border-radius: 0px 100px 100px 0px;
   transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
 }
-nav ul li:hover {
+nav .menu .menu-btn:hover {
   box-shadow: #4df 0px 0px 20px 2px;
   text-shadow: #4df 0px 0px 6px, #4df 0px 0px 10px;
 }
-nav ul li:hover {
-  width: 100%;
-  padding: 0px 0px 0px 16px;
+nav .menu .menu-btn:hover {
+  width: 80%;
   color: black;
 }
-nav ul li a {
-  display: block;
+nav .menu .menu-btn a {
   text-decoration: none;
-  width: 300px;
   color: inherit;
-  padding-right: 16px;
+  max-width: 200px;
+  padding-left: 16px;
 }
-nav ul li.green {
+nav .menu .menu-btn.green {
   background: #e6ffe6;
   box-shadow: #0F0 0px 0px 0px 2px;
 }
-nav ul li.green:hover {
+nav .menu .menu-btn.green:hover {
   box-shadow: #0F0 0px 0px 20px 2px;
   text-shadow: #0F0 0px 0px 6px, #0F0 0px 0px 10px;
 }
-nav ul li.red {
+nav .menu .menu-btn.red {
   background: #ffe6e6;
   box-shadow: #F00 0px 0px 0px 2px;
 }
-nav ul li.red:hover {
+nav .menu .menu-btn.red:hover {
   box-shadow: #F00 0px 0px 20px 2px;
   text-shadow: #F00 0px 0px 6px, #F00 0px 0px 10px;
 }
-nav ul li.purple {
+nav .menu .menu-btn.purple {
   background: #fae6fa;
   box-shadow: #c0c 0px 0px 0px 2px;
 }
-nav ul li.purple:hover {
+nav .menu .menu-btn.purple:hover {
   box-shadow: #c0c 0px 0px 20px 2px;
   text-shadow: #c0c 0px 0px 6px, #c0c 0px 0px 10px;
 }
-nav ul li.yellow {
+nav .menu .menu-btn.yellow {
   background: #ffffe6;
   box-shadow: #FF0 0px 0px 0px 2px;
 }
-nav ul li.yellow:hover {
+nav .menu .menu-btn.yellow:hover {
   box-shadow: #FF0 0px 0px 20px 2px;
   text-shadow: #FF0 0px 0px 6px, #FF0 0px 0px 10px;
+}
+
+#logo-parent {
+  text-align: center;
 }
 
 @keyframes green-ls-in {
@@ -627,6 +671,25 @@ nav ul li.yellow:hover {
   to {
     Opacity: 1;
   }
+}
+.l-card-container .display-card:nth-child(1n) {
+  background: #ecfcff;
+  box-shadow: #ecfcff 0px 0px 0px 2px;
+}
+.l-card-container .display-card:nth-child(1n):hover {
+  box-shadow: #4df 0px 0px 20px 2px;
+}
+.l-card-container .display-card:nth-child(2n) {
+  background: #ffe6e6;
+  box-shadow: #ffe6e6 0px 0px 0px 2px;
+}
+.l-card-container .display-card:nth-child(2n):hover {
+  box-shadow: #F00 0px 0px 20px 2px;
+}
+.l-card-container .card-image {
+  background-image: url("./assets/imgs/starwars.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 /*# sourceMappingURL=App.css.map */
