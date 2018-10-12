@@ -368,7 +368,6 @@ textarea {
   display: grid;
   grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . .";
   grid-template-columns: repeat(2, calc(100%/7)) repeat(3, calc(100%/7)) repeat(2, calc(100%/7));
-  justify-items: start;
   padding: 2rem 0;
   height: 100%;
 }
@@ -562,7 +561,7 @@ nav {
   background: #222;
   position: relative;
   transform: translatey(-3000%);
-  transition: transform 0.5s ease;
+  transition: transform 0.1s ease;
 }
 nav.show {
   transform: translatey(0%);
@@ -585,7 +584,9 @@ nav .menu .menu-btn {
   padding: 0px;
   height: 20px;
   margin: 26px 0px;
-  text-align: center;
+  text-align: justify;
+  position: relative;
+  left: 4rem;
   max-width: 200px;
   width: 0%;
   border-radius: 0px 100px 100px 0px;
