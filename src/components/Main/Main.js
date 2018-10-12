@@ -1,24 +1,34 @@
-import React, { Component } from 'react';
-import NavBar from '../NavBar/NavBar';
-import CardContainer from '../CardContainer/CardContainer';
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+
+import NavBar from "../NavBar/NavBar"
+import CardContainer from "../CardContainer/CardContainer"
 
 class Main extends Component {
   constructor() {
-    super() 
+    super()
 
-    this.state = {
-
-    }
+    this.state = {}
   }
 
   render() {
     return (
-      <main className='l-main'>
+      <main className="l-main">
         <NavBar />
-        <CardContainer />
+        <CardContainer
+          planets={this.props.planets}
+          people={this.props.people}
+          vehicles={this.props.vehicles}
+        />
       </main>
-      )
+    )
   }
 }
 
-export default Main;
+export default Main
+
+Main.propTypes = {
+  people: PropTypes.object,
+  planets: PropTypes.object,
+  vehicles: PropTypes.object
+}
