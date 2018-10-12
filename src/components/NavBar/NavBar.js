@@ -43,13 +43,13 @@ class NavBar extends Component {
 
     return (
       <div className="l-nav side-section">
-        <div className="nav-logo">
+        {/* <div className="nav-logo">
           <img
             className="nav-logo"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
             alt="Star Wars Logo"
           />
-        </div>
+        </div> */}
         <div id="burger-container" onClick={this.handleToggle}>
           <div id="burger" className={this.state.burger}>
             <div className="bun top" />

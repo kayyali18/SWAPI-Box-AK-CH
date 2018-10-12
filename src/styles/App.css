@@ -335,9 +335,10 @@ textarea {
 .l-app {
   display: grid;
   grid-template-areas: "Landing" "Main";
+  background-image: url("./assets/imgs/stars.jpeg");
+  height: 100%;
 }
 .l-app .l-landing {
-  background-image: url("./assets/imgs/stars.jpeg");
   grid-area: Landing;
   height: 100vh;
   border-bottom: 3px solid black;
@@ -346,8 +347,8 @@ textarea {
 .l-app .l-main {
   grid-area: Main;
   display: grid;
-  grid-template-areas: "nav display";
-  grid-template-columns: 1.5fr 8.5fr;
+  grid-template-areas: "nav" "display";
+  grid-template-rows: 1.5fr 8.5fr;
   height: 100vh;
 }
 .l-app .l-main .l-card-container {
@@ -357,18 +358,14 @@ textarea {
   grid-area: nav;
   height: 100%;
   display: grid;
-  grid-template-areas: "Logo-slash-Trivia" "burger" "nav";
-  grid-template-rows: 2fr 1fr 7fr;
+  grid-template-areas: "burger" "nav-container";
+  grid-template-rows: 1fr 2fr;
 }
-.l-app .l-main .nav-logo {
-  grid-area: Logo-slash-Trivia;
-}
-.l-app .l-main .nav-btns {
-  grid-area: btns;
+.l-app .l-main .nav-container {
+  grid-area: nav-container;
 }
 
 .l-card-container {
-  background-image: url("./assets/imgs/stars.jpeg");
   background-size: cover;
 }
 
@@ -432,10 +429,6 @@ textarea {
 .nav-logo img {
   height: 100px;
   width: 200px;
-}
-
-.side-section {
-  background-color: #0c1b37;
 }
 
 #burger-container {
@@ -523,12 +516,10 @@ textarea {
 }
 
 nav {
+  background-color: white;
   font-family: "Audiowide", cursive;
   color: white;
   background: #222;
-  position: relative;
-  transform: translatex(-100%);
-  transition: transform 0.2s ease;
   bottom: 0px;
   padding-left: 16px;
   width: 300px;
