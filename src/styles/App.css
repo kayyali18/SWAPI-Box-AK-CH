@@ -688,7 +688,8 @@ nav .menu .menu-btn.yellow:hover {
 }
 .l-card-container .card-image {
   background-image: url("./assets/imgs/starwars.jpeg");
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
 }
 
 /*# sourceMappingURL=App.css.map */
