@@ -388,14 +388,17 @@ textarea {
 .l-card-container {
   display: grid;
   grid-template-rows: 1fr;
-  overflow: hidden;
+  overflow: scroll;
 }
 .l-card-container .display-card {
   display: grid;
 }
 .l-card-container .display-card:nth-child(odd) {
   grid-template-columns: 1fr 8.5fr;
-  background-color: #8c2338;
+}
+.l-card-container .display-card:nth-child(odd) .card-content {
+  grid-column: 2/3;
+  width: 100%;
 }
 .l-card-container .display-card:nth-child(even) {
   grid-template-columns: 8.5fr 1fr;

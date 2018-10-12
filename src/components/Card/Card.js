@@ -14,8 +14,14 @@ class Card extends Component {
     const {data} = this.props
     return (
       <article className='display-card' aria-label='Individual display of results'>
-        <h3>{data.name}</h3>
-        <p>Weight: {data.mass}KG</p>
+        <div className="card-content">
+          <h3>{data.name}</h3>
+          <p>Weight: {data.mass}KG</p>
+        </div>
+        <div className="card-image">
+          
+        </div>
+
       </article>
       )
   }

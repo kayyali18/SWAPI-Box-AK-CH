@@ -56,14 +56,21 @@
 .l-card-container
   display: grid
   grid-template-rows: 1fr
-  overflow: hidden
+  overflow: scroll
 
   .display-card
     display: grid
+    
 
     &:nth-child(odd)
       grid-template-columns: 1fr 8.5fr
-      background-color: $sweet-maroon
+
+      .card-content
+        grid-column: 2/3
+        width: 100%
+      
+      .card-img
+        // grid-column: 
 
     &:nth-child(even)
       grid-template-columns: 8.5fr 1fr
