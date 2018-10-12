@@ -341,7 +341,6 @@ textarea {
 .l-app .l-landing {
   grid-area: Landing;
   height: 100vh;
-  border-bottom: 3px solid black;
   text-align: center;
 }
 .l-app .l-main {
@@ -363,6 +362,27 @@ textarea {
 }
 .l-app .l-main .nav-container {
   grid-area: nav-container;
+  width: 100%;
+}
+.l-app .l-main .l-menu {
+  display: grid;
+  grid-template-areas: ". . Home . People . ." ". . Planets Vehicles Favourites . .";
+  grid-template-columns: repeat(2, 9vw) repeat(3, 20vw) repeat(2, 9vw);
+}
+.l-app .l-main .l-menu li:first-child {
+  grid-area: Home;
+}
+.l-app .l-main .l-menu li:nth-child(2) {
+  grid-area: People;
+}
+.l-app .l-main .l-menu li:nth-child(3) {
+  grid-area: Planets;
+}
+.l-app .l-main .l-menu li:nth-child(4) {
+  grid-area: Vehicles;
+}
+.l-app .l-main .l-menu li:nth-child(5) {
+  grid-area: Favourites;
 }
 
 .l-card-container {
@@ -520,14 +540,18 @@ nav {
   font-family: "Audiowide", cursive;
   color: white;
   background: #222;
+  position: relative;
+  transform: translatey(-3000%);
+  transition: transform 0.5s ease;
   bottom: 0px;
   padding-left: 16px;
-  width: 300px;
 }
 nav.show {
-  transform: translatex(0%);
+  transform: translatey(0%);
+  display: inline;
 }
 nav ul {
+  width: 95vw;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -535,10 +559,9 @@ nav ul {
 nav ul li {
   background: #ecfcff;
   box-shadow: #4df 0px 0px 0px 2px;
-  font-size: 1.75em;
+  font-size: 18pt;
   line-height: 1.25em;
   padding: 0px;
-  padding-left: 0px;
   margin: 16px 0px;
   text-align: center;
   width: 0;
@@ -550,14 +573,12 @@ nav ul li:hover {
   text-shadow: #4df 0px 0px 6px, #4df 0px 0px 10px;
 }
 nav ul li:hover {
-  width: 100%;
-  padding: 0px 0px 0px 16px;
+  width: 80%;
+  padding: 0px 0px 0px 0px;
   color: black;
 }
 nav ul li a {
-  display: block;
   text-decoration: none;
-  width: 300px;
   color: inherit;
   padding-right: 16px;
 }

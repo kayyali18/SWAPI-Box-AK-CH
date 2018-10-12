@@ -7,7 +7,6 @@
   .l-landing
     grid-area: Landing
     height: 100vh
-    border-bottom: 3px solid black
     text-align: center
   
   .l-main 
@@ -29,7 +28,32 @@
 
     .nav-container
       grid-area: nav-container
+      width: 100%
+
+    
+    .l-menu
+      display: grid
+      grid-template-areas: ". . Home . People . ." ". . Planets Vehicles Favourites . ."
+      grid-template-columns: repeat(2, 9vw) repeat(3, 20vw) repeat(2, 9vw)
+
+      li 
+        &:first-child
+          grid-area: Home
+
+        &:nth-child(2)
+          grid-area: People
+
+        &:nth-child(3)
+          grid-area: Planets
+        
+        &:nth-child(4)
+          grid-area: Vehicles
+
+        &:nth-child(5)
+          grid-area: Favourites
+
 
 .l-card-container
   // background-image: url('./assets/imgs/stars.jpeg')
   background-size: cover
+

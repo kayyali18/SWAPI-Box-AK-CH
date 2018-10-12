@@ -117,42 +117,45 @@ nav
   background-color: white
 
   &.show  
-    transform: translatex(0%) 
+    transform: translatey(0%) 
+
+    display: inline
+
    
   font-family: 'Audiowide', cursive
   color: white 
   background: #222 
-  // position: relative 
-  // transform: translatex(0%) 
-  // transition: transform 0.2s ease 
+  position: relative 
+  transform: translatey(-3000%) 
+  transition: transform 0.5s ease 
   bottom: 0px 
   padding-left: 16px 
-  width: 300px
   ul  
+
+    width: 95vw
     list-style: none 
     padding: 0 
     margin: 0 
     // font-weight:bolder 
     li  
       +lightsaber(#4df) 
-      font-size: 1.75em 
-      line-height: 1.25em 
+      font-size: 18pt 
+      line-height: 1.25em
       padding: 0px 
-      padding-left: 0px 
       margin: 16px 0px 
       text-align: center
-      width: 0 
+      width: 0
       border-radius: 0px 100px 100px 0px 
       transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease 
       &:hover  
-        width: 100% 
-        padding: 0px 0px 0px 16px 
+        width: 80% 
+        padding: 0px 0px 0px 0px 
         color:  black 
        
       a  
-        display: block 
+        // display: block 
         text-decoration: none 
-        width: 300px 
+
         color: inherit 
         padding-right: 16px 
        

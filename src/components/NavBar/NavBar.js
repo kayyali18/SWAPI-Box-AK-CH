@@ -58,21 +58,21 @@ class NavBar extends Component {
           </div>
         </div>
         <nav ref={`toggle`} className={`nav-container ${this.state.navClass}`} id="nav">
-          <ul>
+          <ul className='l-menu menu'>
             <li>
               <a href="#">Home</a>
             </li>
             <li className="green">
-              <a href="#">Jedi</a>
+              <a href="#">People</a>
             </li>
             <li className="red">
-              <a href="#">Sith</a>
+              <a href="#">Planets</a>
             </li>
             <li className="yellow">
-              <a href="#">Sentinel</a>
+              <a href="#">Vehicles</a>
             </li>
             <li className="purple">
-              <a href="#">Samuel L. Jackson</a>
+              <a href="#">Favourites</a>
             </li>
           </ul>
         </nav>
