@@ -137,10 +137,11 @@ nav
     // font-weight:bolder 
     .menu-btn  
       +lightsaber(#4df) 
-      font-size: 18pt 
-      line-height: 1.25em
-      padding: 0px 
-      margin: 16px 0px 
+      font-size: 16pt 
+      line-height: 16pt
+      padding: 0px
+      height: 20px
+      margin: 26px 0px 
       text-align: center
       // margin: 20px auto
       max-width: 200px
@@ -149,13 +150,13 @@ nav
       transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease 
       &:hover  
         width: 80% 
-        padding: 0px 0px 0px 0px 
         color:  black 
        
       a  
         text-decoration: none 
         color: inherit 
         max-width: 200px
+        padding-left: 16px
        
       &.green  
         @include lightsaber(#0F0) 

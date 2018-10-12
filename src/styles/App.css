@@ -348,7 +348,7 @@ textarea {
   grid-area: Main;
   display: grid;
   grid-template-areas: "nav" "display";
-  grid-template-rows: 250px 8.5fr;
+  grid-template-rows: 350px 8.5fr;
   height: 100%;
 }
 .l-app .l-main .l-card-container {
@@ -368,6 +368,8 @@ textarea {
   display: grid;
   grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . .";
   grid-template-columns: repeat(2, calc(100%/7)) repeat(3, calc(100%/7)) repeat(2, calc(100%/7));
+  justify-items: start;
+  padding: 2rem 0;
   height: 100%;
 }
 .l-app .l-main .l-menu li:first-child {
@@ -578,10 +580,11 @@ nav .menu {
 nav .menu .menu-btn {
   background: #ecfcff;
   box-shadow: #4df 0px 0px 0px 2px;
-  font-size: 18pt;
-  line-height: 1.25em;
+  font-size: 16pt;
+  line-height: 16pt;
   padding: 0px;
-  margin: 16px 0px;
+  height: 20px;
+  margin: 26px 0px;
   text-align: center;
   max-width: 200px;
   width: 0%;
@@ -594,13 +597,13 @@ nav .menu .menu-btn:hover {
 }
 nav .menu .menu-btn:hover {
   width: 80%;
-  padding: 0px 0px 0px 0px;
   color: black;
 }
 nav .menu .menu-btn a {
   text-decoration: none;
   color: inherit;
   max-width: 200px;
+  padding-left: 16px;
 }
 nav .menu .menu-btn.green {
   background: #e6ffe6;

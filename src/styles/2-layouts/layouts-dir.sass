@@ -13,7 +13,7 @@
     grid-area: Main
     display: grid
     grid-template-areas: "nav" "display"
-    grid-template-rows: 250px 8.5fr 
+    grid-template-rows: 350px 8.5fr 
     height: 100%
 
     .l-card-container
@@ -36,7 +36,9 @@
       grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . ."
       grid-template-columns: repeat(2, calc(100%/7)) repeat(3, calc(100%/7)) repeat(2, calc(100%/7))
       // grid-auto-columns: 1fr
-      // justify-items: center
+      justify-items: start
+      padding: 2rem 0
+
       height: 100%
     
 
