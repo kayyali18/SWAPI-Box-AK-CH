@@ -348,7 +348,7 @@ textarea {
   grid-area: Main;
   display: grid;
   grid-template-areas: "nav" "display";
-  grid-template-rows: 150px 8.5fr;
+  grid-template-rows: 250px 8.5fr;
   height: 100%;
 }
 .l-app .l-main .l-card-container {
@@ -359,7 +359,6 @@ textarea {
   display: grid;
   grid-template-areas: "burger" "nav-container";
   grid-template-rows: 1fr 2fr;
-  width: 100vw;
 }
 .l-app .l-main .nav-container {
   height: 100%;
@@ -368,9 +367,8 @@ textarea {
 .l-app .l-main .l-menu {
   display: grid;
   grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . .";
-  grid-template-columns: repeat(2, 5vw) repeat(3, 30vw) repeat(2, 5vw);
-  grid-auto-columns: 1px;
-  width: 100vw;
+  grid-template-columns: repeat(2, calc(100%/7)) repeat(3, calc(100%/7)) repeat(2, calc(100%/7));
+  height: 100%;
 }
 .l-app .l-main .l-menu li:first-child {
   grid-area: Home;
@@ -569,7 +567,7 @@ nav.show {
   animation: fadein 1s;
   display: inline;
 }
-nav ul {
+nav .menu {
   width: 100vw;
   list-style: none;
   padding: 0;
@@ -577,7 +575,7 @@ nav ul {
   margin-block-start: 0;
   margin-block-end: 0;
 }
-nav ul .menu-btn {
+nav .menu .menu-btn {
   background: #ecfcff;
   box-shadow: #4df 0px 0px 0px 2px;
   font-size: 18pt;
@@ -585,54 +583,60 @@ nav ul .menu-btn {
   padding: 0px;
   margin: 16px 0px;
   text-align: center;
-  width: 0;
+  max-width: 200px;
+  width: 0%;
   border-radius: 0px 100px 100px 0px;
   transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
 }
-nav ul .menu-btn:hover {
+nav .menu .menu-btn:hover {
   box-shadow: #4df 0px 0px 20px 2px;
   text-shadow: #4df 0px 0px 6px, #4df 0px 0px 10px;
 }
-nav ul .menu-btn:hover {
+nav .menu .menu-btn:hover {
   width: 80%;
   padding: 0px 0px 0px 0px;
   color: black;
 }
-nav ul .menu-btn a {
+nav .menu .menu-btn a {
   text-decoration: none;
   color: inherit;
+  max-width: 200px;
 }
-nav ul .menu-btn.green {
+nav .menu .menu-btn.green {
   background: #e6ffe6;
   box-shadow: #0F0 0px 0px 0px 2px;
 }
-nav ul .menu-btn.green:hover {
+nav .menu .menu-btn.green:hover {
   box-shadow: #0F0 0px 0px 20px 2px;
   text-shadow: #0F0 0px 0px 6px, #0F0 0px 0px 10px;
 }
-nav ul .menu-btn.red {
+nav .menu .menu-btn.red {
   background: #ffe6e6;
   box-shadow: #F00 0px 0px 0px 2px;
 }
-nav ul .menu-btn.red:hover {
+nav .menu .menu-btn.red:hover {
   box-shadow: #F00 0px 0px 20px 2px;
   text-shadow: #F00 0px 0px 6px, #F00 0px 0px 10px;
 }
-nav ul .menu-btn.purple {
+nav .menu .menu-btn.purple {
   background: #fae6fa;
   box-shadow: #c0c 0px 0px 0px 2px;
 }
-nav ul .menu-btn.purple:hover {
+nav .menu .menu-btn.purple:hover {
   box-shadow: #c0c 0px 0px 20px 2px;
   text-shadow: #c0c 0px 0px 6px, #c0c 0px 0px 10px;
 }
-nav ul .menu-btn.yellow {
+nav .menu .menu-btn.yellow {
   background: #ffffe6;
   box-shadow: #FF0 0px 0px 0px 2px;
 }
-nav ul .menu-btn.yellow:hover {
+nav .menu .menu-btn.yellow:hover {
   box-shadow: #FF0 0px 0px 20px 2px;
   text-shadow: #FF0 0px 0px 6px, #FF0 0px 0px 10px;
+}
+
+#logo-parent {
+  text-align: center;
 }
 
 @keyframes green-ls-in {

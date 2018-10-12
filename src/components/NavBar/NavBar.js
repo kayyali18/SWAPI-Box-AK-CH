@@ -59,7 +59,7 @@ class NavBar extends Component {
             <li className='menu-btn'>
               <a href="#">Home</a>
             </li>
-            <li className=''>
+            <li id='logo-parent'>
               <a href="#">
                 <img
                   className="nav-logo"

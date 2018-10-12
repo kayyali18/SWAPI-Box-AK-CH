@@ -13,7 +13,7 @@
     grid-area: Main
     display: grid
     grid-template-areas: "nav" "display"
-    grid-template-rows: 150px 8.5fr 
+    grid-template-rows: 250px 8.5fr 
     height: 100%
 
     .l-card-container
@@ -24,7 +24,7 @@
       display: grid
       grid-template-areas: "burger" "nav-container"
       grid-template-rows: 1fr 2fr
-      width: 100vw
+      // height: 210px
 
     .nav-container
       height: 100%
@@ -34,9 +34,11 @@
     .l-menu
       display: grid
       grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . ."
-      grid-template-columns: repeat(2, 5vw) repeat(3, 30vw) repeat(2, 5vw)
-      grid-auto-columns: 1px
-      width: 100vw
+      grid-template-columns: repeat(2, calc(100%/7)) repeat(3, calc(100%/7)) repeat(2, calc(100%/7))
+      // grid-auto-columns: 1fr
+      // justify-items: center
+      height: 100%
+    
 
       li 
         &:first-child
