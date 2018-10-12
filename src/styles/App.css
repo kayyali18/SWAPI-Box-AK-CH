@@ -337,6 +337,7 @@ textarea {
   grid-template-areas: "Landing" "Main";
   background-image: url("./assets/imgs/stars.jpeg");
   height: 100%;
+  width: 100vw;
 }
 .l-app .l-landing {
   grid-area: Landing;
@@ -347,7 +348,7 @@ textarea {
   grid-area: Main;
   display: grid;
   grid-template-areas: "nav" "display";
-  grid-template-rows: 1.5fr 8.5fr;
+  grid-template-rows: 150px 8.5fr;
   height: 100%;
 }
 .l-app .l-main .l-card-container {
@@ -355,33 +356,38 @@ textarea {
 }
 .l-app .l-main .l-nav {
   grid-area: nav;
-  height: 100%;
   display: grid;
   grid-template-areas: "burger" "nav-container";
   grid-template-rows: 1fr 2fr;
-  width: 98vw;
+  width: 100vw;
 }
 .l-app .l-main .nav-container {
+  height: 100%;
   grid-area: nav-container;
 }
 .l-app .l-main .l-menu {
   display: grid;
-  grid-template-areas: ". . Home . People . ." ". . Planets Vehicles Favourites . .";
-  grid-template-columns: repeat(2, 9vw) repeat(3, 20vw) repeat(2, 9vw);
+  grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . .";
+  grid-template-columns: repeat(2, 5vw) repeat(3, 30vw) repeat(2, 5vw);
+  grid-auto-columns: 1px;
+  width: 100vw;
 }
 .l-app .l-main .l-menu li:first-child {
   grid-area: Home;
 }
 .l-app .l-main .l-menu li:nth-child(2) {
-  grid-area: People;
+  grid-area: Logo;
 }
 .l-app .l-main .l-menu li:nth-child(3) {
-  grid-area: Planets;
+  grid-area: People;
 }
 .l-app .l-main .l-menu li:nth-child(4) {
-  grid-area: Vehicles;
+  grid-area: Planets;
 }
 .l-app .l-main .l-menu li:nth-child(5) {
+  grid-area: Vehicles;
+}
+.l-app .l-main .l-menu li:nth-child(6) {
   grid-area: Favourites;
 }
 
@@ -392,6 +398,7 @@ textarea {
 }
 .l-card-container .display-card {
   display: grid;
+  height: 250px;
 }
 .l-card-container .display-card:nth-child(odd) {
   grid-template-columns: 1fr 8.5fr;
@@ -460,13 +467,8 @@ textarea {
   }
 }
 .nav-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-logo img {
-  height: 100px;
-  width: 200px;
+  height: 50px;
+  width: 10vw;
 }
 
 #burger-container {
@@ -561,20 +563,21 @@ nav {
   position: relative;
   transform: translatey(-3000%);
   transition: transform 0.5s ease;
-  bottom: 0px;
-  padding-left: 16px;
 }
 nav.show {
   transform: translatey(0%);
+  animation: fadein 1s;
   display: inline;
 }
 nav ul {
-  width: 95vw;
+  width: 100vw;
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
-nav ul li {
+nav ul .menu-btn {
   background: #ecfcff;
   box-shadow: #4df 0px 0px 0px 2px;
   font-size: 18pt;
@@ -586,49 +589,48 @@ nav ul li {
   border-radius: 0px 100px 100px 0px;
   transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
 }
-nav ul li:hover {
+nav ul .menu-btn:hover {
   box-shadow: #4df 0px 0px 20px 2px;
   text-shadow: #4df 0px 0px 6px, #4df 0px 0px 10px;
 }
-nav ul li:hover {
+nav ul .menu-btn:hover {
   width: 80%;
   padding: 0px 0px 0px 0px;
   color: black;
 }
-nav ul li a {
+nav ul .menu-btn a {
   text-decoration: none;
   color: inherit;
-  padding-right: 16px;
 }
-nav ul li.green {
+nav ul .menu-btn.green {
   background: #e6ffe6;
   box-shadow: #0F0 0px 0px 0px 2px;
 }
-nav ul li.green:hover {
+nav ul .menu-btn.green:hover {
   box-shadow: #0F0 0px 0px 20px 2px;
   text-shadow: #0F0 0px 0px 6px, #0F0 0px 0px 10px;
 }
-nav ul li.red {
+nav ul .menu-btn.red {
   background: #ffe6e6;
   box-shadow: #F00 0px 0px 0px 2px;
 }
-nav ul li.red:hover {
+nav ul .menu-btn.red:hover {
   box-shadow: #F00 0px 0px 20px 2px;
   text-shadow: #F00 0px 0px 6px, #F00 0px 0px 10px;
 }
-nav ul li.purple {
+nav ul .menu-btn.purple {
   background: #fae6fa;
   box-shadow: #c0c 0px 0px 0px 2px;
 }
-nav ul li.purple:hover {
+nav ul .menu-btn.purple:hover {
   box-shadow: #c0c 0px 0px 20px 2px;
   text-shadow: #c0c 0px 0px 6px, #c0c 0px 0px 10px;
 }
-nav ul li.yellow {
+nav ul .menu-btn.yellow {
   background: #ffffe6;
   box-shadow: #FF0 0px 0px 0px 2px;
 }
-nav ul li.yellow:hover {
+nav ul .menu-btn.yellow:hover {
   box-shadow: #FF0 0px 0px 20px 2px;
   text-shadow: #FF0 0px 0px 6px, #FF0 0px 0px 10px;
 }

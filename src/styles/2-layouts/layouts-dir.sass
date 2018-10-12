@@ -3,7 +3,7 @@
   grid-template-areas: "Landing""Main"
   background-image: url('./assets/imgs/stars.jpeg')
   height: 100%
-
+  width: 100vw
   .l-landing
     grid-area: Landing
     height: 100vh
@@ -13,7 +13,7 @@
     grid-area: Main
     display: grid
     grid-template-areas: "nav" "display"
-    grid-template-rows: 1.5fr 8.5fr 
+    grid-template-rows: 150px 8.5fr 
     height: 100%
 
     .l-card-container
@@ -21,35 +21,40 @@
     
     .l-nav
       grid-area: nav
-      height: 100%
       display: grid
       grid-template-areas: "burger" "nav-container"
       grid-template-rows: 1fr 2fr
-      width: 98vw
+      width: 100vw
 
     .nav-container
+      height: 100%
       grid-area: nav-container
 
     
     .l-menu
       display: grid
-      grid-template-areas: ". . Home . People . ." ". . Planets Vehicles Favourites . ."
-      grid-template-columns: repeat(2, 9vw) repeat(3, 20vw) repeat(2, 9vw)
+      grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . ."
+      grid-template-columns: repeat(2, 5vw) repeat(3, 30vw) repeat(2, 5vw)
+      grid-auto-columns: 1px
+      width: 100vw
 
       li 
         &:first-child
           grid-area: Home
-
+      li 
         &:nth-child(2)
-          grid-area: People
+          grid-area: Logo
 
         &:nth-child(3)
+          grid-area: People
+
+        &:nth-child(4)
           grid-area: Planets
         
-        &:nth-child(4)
+        &:nth-child(5)
           grid-area: Vehicles
 
-        &:nth-child(5)
+        &:nth-child(6)
           grid-area: Favourites
 
 
@@ -61,6 +66,7 @@
 
   .display-card
     display: grid
+    height: 250px
     
 
     &:nth-child(odd)
