@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 
 import Card from "../Card/Card"
 
@@ -10,7 +10,7 @@ class CardContainer extends Component {
       planets: null,
       people: null,
       vehicles: null,
-      category: 'people'
+      category: "people"
     }
   }
 
@@ -23,15 +23,19 @@ class CardContainer extends Component {
     })
   }
 
-  generateCards = (query) => {
+  generateCards = query => {
     const category = this.state[query]
     let cards = category.results.map((result, index) => {
       return (
-        <Card data={category.results[index]} key={category.results[index].created} />
+        <Card
+          data={category.results[index]}
+          key={category.results[index].created}
+          category={this.state.category}
+        />
       )
     })
     return cards
-  }
+  };
 
   render() {
     if (!this.state.planets) return null
