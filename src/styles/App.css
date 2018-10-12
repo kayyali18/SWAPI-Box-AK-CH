@@ -386,7 +386,19 @@ textarea {
 }
 
 .l-card-container {
-  background-size: cover;
+  display: grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+.l-card-container .display-card {
+  display: grid;
+}
+.l-card-container .display-card:nth-child(odd) {
+  grid-template-columns: 1fr 8.5fr;
+  background-color: #8c2338;
+}
+.l-card-container .display-card:nth-child(even) {
+  grid-template-columns: 8.5fr 1fr;
 }
 
 .hello {
@@ -644,6 +656,20 @@ nav ul li.yellow:hover {
   to {
     Opacity: 1;
   }
+}
+.l-card-container .display-card:nth-child(1n) {
+  background: #ecfcff;
+  box-shadow: #ecfcff 0px 0px 0px 2px;
+}
+.l-card-container .display-card:nth-child(1n):hover {
+  box-shadow: #4df 0px 0px 20px 2px;
+}
+.l-card-container .display-card:nth-child(2n) {
+  background: #ffe6e6;
+  box-shadow: #ffe6e6 0px 0px 0px 2px;
+}
+.l-card-container .display-card:nth-child(2n):hover {
+  box-shadow: #F00 0px 0px 20px 2px;
 }
 
 /*# sourceMappingURL=App.css.map */

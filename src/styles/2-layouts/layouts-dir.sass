@@ -54,6 +54,17 @@
 
 
 .l-card-container
-  // background-image: url('./assets/imgs/stars.jpeg')
-  background-size: cover
+  display: grid
+  grid-template-rows: 1fr
+  overflow: hidden
+
+  .display-card
+    display: grid
+
+    &:nth-child(odd)
+      grid-template-columns: 1fr 8.5fr
+      background-color: $sweet-maroon
+
+    &:nth-child(even)
+      grid-template-columns: 8.5fr 1fr
 

@@ -42,7 +42,7 @@ class NavBar extends Component {
     })
 
     return (
-      <div className="l-nav side-section">
+      <div className="l-nav">
         {/* <div className="nav-logo">
           <img
             className="nav-logo"
