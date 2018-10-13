@@ -10,7 +10,11 @@ class Button extends Component {
     }
   }
 
-  handleClick = () => {
+  handleClick = (event) => {
+    event.preventDefault();
+    const lowerButtonText = this.props.buttonText.toLowerCase();
+    
+    this.props.generateCards(lowerButtonText)
     this.setState({
       isSelected: !this.state.isSelected
     })
@@ -19,7 +23,7 @@ class Button extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => {this.handleClick()}}>{this.props.buttonText}</button>
+        <button onClick={this.handleClick}>{this.props.buttonText}</button>
       </div>
     )
   }

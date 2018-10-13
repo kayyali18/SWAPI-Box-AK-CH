@@ -3,53 +3,34 @@ import PropTypes from "prop-types"
 
 import Card from "../Card/Card"
 
-class CardContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      planets: null,
-      people: null,
-      vehicles: null,
-      category: "people"
-    }
-  }
+const CardContainer = (props) => {
+console.log(props.cards)
+  if (props.cards) {
 
-  componentDidMount() {
-    const { people, planets, vehicles } = this.props
-    this.setState({
-      planets,
-      people,
-      vehicles
-    })
-  }
-
-  generateCards = query => {
-    const category = this.state[query]
-    let cards = category.results.map((result, index) => {
+  const cards = props.cards.map((card, index) => {
       return (
         <Card
-          data={category.results[index]}
-          key={category.results[index].created}
-          category={this.state.category}
+          data={card}
+          key={index}
+          category={props.category}
         />
-      )
-    })
-    return cards
-  };
+        )
+      })
 
-  render() {
-    if (!this.state.planets) return null
     return (
       <section className="l-card-container card-container">
-        {this.generateCards(this.state.category)}
+        { cards }
       </section>
     )
+  } else {
+    return null
   }
 }
 
-export default CardContainer
 CardContainer.propTypes = {
   people: PropTypes.object,
   planets: PropTypes.object,
   vehicles: PropTypes.object
 }
+
+export default CardContainer;

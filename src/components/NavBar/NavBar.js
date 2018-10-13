@@ -57,7 +57,9 @@ class NavBar extends Component {
         >
           <ul className="l-menu menu">
             <li className='menu-btn'>
-              <a href="#">Home</a>
+              <Button 
+                generateCards={this.props.generateCards}
+                buttonText={"Home"}/>
             </li>
             <li id='logo-parent'>
               <a href="#">
@@ -69,16 +71,24 @@ class NavBar extends Component {
               </a>
             </li>
             <li className="menu-btn green">
-              <a href="#">People</a>
+              <Button 
+                generateCards={this.props.generateCards}
+                buttonText={"People"}/>
             </li>
             <li className="menu-btn red">
-              <a href="#">Planets</a>
+              <Button 
+                generateCards={this.props.generateCards}
+                buttonText={"Planets"}/>
             </li>
             <li className="menu-btn yellow">
-              <a href="#">Vehicles</a>
+              <Button 
+                generateCards={this.props.generateCards}
+                buttonText={"Vehicles"}/>
             </li>
             <li className="menu-btn purple">
-              <a href="#">Favourites</a>
+              <Button 
+                generateCards={this.props.generateCards}
+                buttonText={"Favourites"}/>
             </li>
           </ul>
         </nav>
