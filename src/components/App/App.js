@@ -12,13 +12,14 @@ class App extends Component {
       planets: [],
       people: [],
       vehicles: [],
-      films: undefined,
+      films: null,
       categories: [
         { category: "planets", page: 1 },
         { category: "people", page: 1 },
         { category: "vehicles", page: 1 },
         { category: "films", page: 1 }
-      ]
+      ],
+      cards: {}
     }
   }
 
@@ -33,6 +34,11 @@ class App extends Component {
     })
   }
 
+  generateCards = query => {
+    const cards = this.state[query].results
+    this.setState({ cards, currCategory:query })
+  };
+
   render() {
     if (!this.state.films) return null
     return (
@@ -42,6 +48,7 @@ class App extends Component {
           planets={this.state.planets}
           people={this.state.people}
           vehicles={this.state.vehicles}
+          generateCards={this.generateCards}
         />
       </div>
     )
