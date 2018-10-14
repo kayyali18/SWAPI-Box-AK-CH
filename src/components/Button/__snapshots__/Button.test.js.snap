@@ -4,7 +4,9 @@ exports[`App renders without crashing 1`] = `
 <div>
   <button
     onClick={[Function]}
-  />
+  >
+    People
+  </button>
 </div>
 `;
 
@@ -12,6 +14,8 @@ exports[`App should reset state after a click 1`] = `
 <div>
   <button
     onClick={[Function]}
-  />
+  >
+    People
+  </button>
 </div>
 `;

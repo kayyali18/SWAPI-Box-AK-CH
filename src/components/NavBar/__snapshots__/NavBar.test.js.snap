@@ -2,17 +2,8 @@
 
 exports[`App renders without crashing 1`] = `
 <div
-  className="l-nav side-section"
+  className="l-nav"
 >
-  <div
-    className="nav-logo"
-  >
-    <img
-      alt="Star Wars Logo"
-      className="nav-logo"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
-    />
-  </div>
   <div
     id="burger-container"
     onClick={[Function]}
@@ -35,49 +26,56 @@ exports[`App renders without crashing 1`] = `
     className="nav-container undefined"
     id="nav"
   >
-    <ul>
-      <li>
-        <a
-          href="#"
-        >
-          Home
-        </a>
+    <ul
+      className="l-menu menu"
+    >
+      <li
+        className="menu-btn"
+      >
+        <Button
+          buttonText="Home"
+        />
       </li>
       <li
-        className="green"
+        id="logo-parent"
       >
         <a
           href="#"
         >
-          Jedi
+          <img
+            alt="Star Wars Logo"
+            className="nav-logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
+          />
         </a>
       </li>
       <li
-        className="red"
+        className="menu-btn green"
       >
-        <a
-          href="#"
-        >
-          Sith
-        </a>
+        <Button
+          buttonText="People"
+        />
       </li>
       <li
-        className="yellow"
+        className="menu-btn red"
       >
-        <a
-          href="#"
-        >
-          Sentinel
-        </a>
+        <Button
+          buttonText="Planets"
+        />
       </li>
       <li
-        className="purple"
+        className="menu-btn yellow"
       >
-        <a
-          href="#"
-        >
-          Samuel L. Jackson
-        </a>
+        <Button
+          buttonText="Vehicles"
+        />
+      </li>
+      <li
+        className="menu-btn purple"
+      >
+        <Button
+          buttonText="Favourites"
+        />
       </li>
     </ul>
   </nav>
