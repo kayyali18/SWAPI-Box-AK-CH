@@ -14,4 +14,8 @@ describe('Card Container', () => {
   it('renders without crashing', () => {
     expect(wrapper).toMatchSnapshot()
   })
+
+  it("should fetch supplementary data and update state", () => {
+
+  })
 })

@@ -8,15 +8,13 @@ describe("App", () => {
 
   beforeEach(() => {
     wrapper = shallow(<Button />)
-    
   })
 
   it("renders without crashing", () => {
     expect(wrapper).toMatchSnapshot();
-    
   })
 
-  it("should reset state after a click", async() => {
+  it("should reset state after a click", async () => {
     await wrapper.instance().handleClick()
 
     expect(wrapper).toMatchSnapshot();

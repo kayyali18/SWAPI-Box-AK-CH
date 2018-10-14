@@ -13,4 +13,12 @@ describe("App", () => {
   it("renders without crashing", () => {
     expect(wrapper).toMatchSnapshot()
   })
+
+  it("should update state to not match snapshot", () => {
+
+  })
+
+  it("should generate cards on click", () => {
+
+  })
 })
