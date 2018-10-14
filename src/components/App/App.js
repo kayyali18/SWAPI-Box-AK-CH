@@ -49,6 +49,7 @@ class App extends Component {
           people={this.state.people}
           vehicles={this.state.vehicles}
           generateCards={this.generateCards}
+          cards={this.state.cards}
         />
       </div>
     )
