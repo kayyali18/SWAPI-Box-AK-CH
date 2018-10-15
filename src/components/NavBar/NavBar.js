@@ -1,18 +1,13 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
 
-import Button from "../Button/Button"
-
 class NavBar extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      buttonText: {
-        planets: "Planets",
-        people: "People",
-        vehicles: "Vehicles"
-      }
+      burger: "",
+      navClass: ""
     }
   }
 
@@ -37,17 +32,6 @@ class NavBar extends Component {
   }
 
   render() {
-    const { buttonText } = this.state
-    const buttons = Object.keys(buttonText).map(category => {
-      return (
-        <Button
-          className={"category-button"}
-          buttonText={buttonText[category]}
-          key={buttonText[category]}
-        />
-      )
-    })
-
     return (
       <div className="l-nav">
         <div id="burger-container" onClick={this.handleToggle}>
