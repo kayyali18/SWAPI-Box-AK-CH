@@ -29,13 +29,13 @@ class Main extends Component {
   }
 
   render() {
-    const {generateCards} = this.props
+    const {generateCards, cards, currCategory} = this.props
     return (
       <main className="l-main">
         <NavBar generateCards={generateCards}/>
         <CardContainer
-          cards={this.state.cards}
-          category={this.state.category}
+          cards={cards}
+          category={currCategory}
         />
       </main>
     )
@@ -48,5 +48,7 @@ Main.propTypes = {
   people: PropTypes.object,
   planets: PropTypes.object,
   vehicles: PropTypes.object,
-  generateCards: PropTypes.func
+  generateCards: PropTypes.func,
+  cards: PropTypes.object,
+  currCategory: PropTypes.string
 }

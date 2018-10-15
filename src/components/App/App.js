@@ -19,7 +19,8 @@ class App extends Component {
         { category: "vehicles", page: 1 },
         { category: "films", page: 1 }
       ],
-      cards: {}
+      cards: {},
+      currCategory: ''
     }
   }
 
@@ -50,6 +51,7 @@ class App extends Component {
           vehicles={this.state.vehicles}
           generateCards={this.generateCards}
           cards={this.state.cards}
+          currCategory={this.state.currCategory}
         />
       </div>
     )
