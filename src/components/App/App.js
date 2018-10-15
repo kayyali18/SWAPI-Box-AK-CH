@@ -19,7 +19,7 @@ class App extends Component {
         { category: "vehicles", page: 1 },
         { category: "films", page: 1 }
       ],
-      cards: {},
+      cards: [],
       currCategory: ''
     }
   }

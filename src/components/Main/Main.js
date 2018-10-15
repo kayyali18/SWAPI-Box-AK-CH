@@ -49,6 +49,6 @@ Main.propTypes = {
   planets: PropTypes.object,
   vehicles: PropTypes.object,
   generateCards: PropTypes.func,
-  cards: PropTypes.object,
+  cards: PropTypes.array,
   currCategory: PropTypes.string
 }
