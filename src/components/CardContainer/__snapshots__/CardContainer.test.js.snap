@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card Container renders without crashing 1`] = `
-<section
-  className="l-card-container card-container"
->
-  <Card />
-</section>
-`;
+exports[`Card Container renders without crashing 1`] = `""`;

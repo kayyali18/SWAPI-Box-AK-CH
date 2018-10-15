@@ -5,9 +5,13 @@ import { shallow } from "enzyme"
 
 describe("App", () => {
   let wrapper
+  let mockEvent;
+  let mockGenerateCards;
 
   beforeEach(() => {
-    wrapper = shallow(<Button />)
+    mockGenerateCards = jest.fn()
+    wrapper = shallow(<Button buttonText={"People"} generateCards={mockGenerateCards}/>)
+    mockEvent = { preventDefault: jest.fn() }
   })
 
   it("renders without crashing", () => {
@@ -15,12 +19,12 @@ describe("App", () => {
   })
 
   it("should reset state after a click", async () => {
-    await wrapper.instance().handleClick()
+    await wrapper.instance().handleClick(mockEvent)
 
     expect(wrapper).toMatchSnapshot();
   })
 
   it('should call an anonymous function on click', () => {
-    wrapper.find('button').prop('onClick')()
+    wrapper.find('button').prop('onClick')(mockEvent)
   })
 })

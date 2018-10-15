@@ -4,7 +4,12 @@ exports[`App renders without crashing 1`] = `
 <main
   className="l-main"
 >
-  <NavBar />
-  <CardContainer />
+  <NavBar
+    generateCards={[Function]}
+  />
+  <CardContainer
+    cards={null}
+    category={null}
+  />
 </main>
 `;
