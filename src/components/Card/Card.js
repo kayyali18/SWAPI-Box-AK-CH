@@ -16,10 +16,6 @@ class Card extends Component {
 
     if (category === "planets") {
       return (
-        // Name
-        // Terrain
-        // Population
-        // Climate
         // Residents
         // A button to “Favorite” the planet
         <article
@@ -28,13 +24,15 @@ class Card extends Component {
         >
           <div className="card-content">
             <h3>{data.name}</h3>
+            <p>Terrain: {data.terrain}</p>
+            <p>Population: {data.population}</p>
+            <p>Climate: {data.climate}</p>
           </div>
           <div className="card-image" />
         </article>
       )
     } else if (category === "people") {
       return (
-        // Name
         // Homeworld
         // Species
         // Population of Homeworld
@@ -62,6 +60,9 @@ class Card extends Component {
         >
           <div className="card-content">
             <h3>{data.name}</h3>
+            <p>Model: {data.model}</p>
+            <p>Class: {data.vehicle_class}</p>
+            <p>Number of Passengers: {data.passengers}</p>
           </div>
           <div className="card-image" />
         </article>

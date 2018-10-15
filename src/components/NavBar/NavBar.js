@@ -26,6 +26,7 @@ class NavBar extends Component {
   };
 
   handleClick = (event) => {
+    event.preventDefault();
     const query = event.currentTarget.children[0].text.toLowerCase()
     
     this.props.generateCards(query)
