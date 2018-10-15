@@ -1,3 +1,121 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders without crashing 1`] = `<div />`;
+exports[`App renders the correct cards based off of the category condition 1`] = `
+<div>
+  <article
+    aria-label="Individual display of results"
+    className="display-card"
+  >
+    <div
+      className="card-content"
+    >
+      <h3>
+        Luke
+      </h3>
+    </div>
+    <div
+      className="card-image"
+    />
+  </article>
+</div>
+`;
+
+exports[`App renders the correct cards based off of the category condition 2`] = `
+<div>
+  <article
+    aria-label="Individual display of results"
+    className="display-card"
+  >
+    <div
+      className="card-content"
+    >
+      <h3>
+        Mars
+      </h3>
+    </div>
+    <div
+      className="card-image"
+    />
+  </article>
+</div>
+`;
+
+exports[`App renders the correct cards based off of the category condition 3`] = `
+<div>
+  <article
+    aria-label="Individual display of results"
+    className="display-card"
+  >
+    <div
+      className="card-content"
+    >
+      <h3>
+        car
+      </h3>
+    </div>
+    <div
+      className="card-image"
+    />
+  </article>
+</div>
+`;
+
+exports[`App renders the people cards based off of the category condition 1`] = `
+<div>
+  <article
+    aria-label="Individual display of results"
+    className="display-card"
+  >
+    <div
+      className="card-content"
+    >
+      <h3>
+        Luke
+      </h3>
+    </div>
+    <div
+      className="card-image"
+    />
+  </article>
+</div>
+`;
+
+exports[`App renders the planet cards based off of the category condition 1`] = `
+<div>
+  <article
+    aria-label="Individual display of results"
+    className="display-card"
+  >
+    <div
+      className="card-content"
+    >
+      <h3>
+        Mars
+      </h3>
+    </div>
+    <div
+      className="card-image"
+    />
+  </article>
+</div>
+`;
+
+exports[`App renders the vehicle cards based off of the category condition 1`] = `
+<div>
+  <article
+    aria-label="Individual display of results"
+    className="display-card"
+  >
+    <div
+      className="card-content"
+    >
+      <h3>
+        car
+      </h3>
+    </div>
+    <div
+      className="card-image"
+    />
+  </article>
+</div>
+`;
