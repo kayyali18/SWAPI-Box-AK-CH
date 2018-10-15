@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import PropTypes from 'prop-types'
 
-import Button from "../Button/Button";
+import Button from "../Button/Button"
 
 class NavBar extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       buttonText: {
@@ -12,7 +13,7 @@ class NavBar extends Component {
         people: "People",
         vehicles: "Vehicles"
       }
-    };
+    }
   }
 
   handleToggle = () => {
@@ -20,17 +21,23 @@ class NavBar extends Component {
       this.setState({
         burger: "active",
         navClass: "show"
-      });
+      })
     } else {
       this.setState({
         burger: "",
         navClass: ""
-      });
+      })
     }
   };
 
+  handleClick = (event) => {
+    const query = event.currentTarget.children[0].text.toLowerCase()
+    
+    this.props.generateCards(query)
+  }
+
   render() {
-    const { buttonText } = this.state;
+    const { buttonText } = this.state
     const buttons = Object.keys(buttonText).map(category => {
       return (
         <Button
@@ -38,8 +45,8 @@ class NavBar extends Component {
           buttonText={buttonText[category]}
           key={buttonText[category]}
         />
-      );
-    });
+      )
+    })
 
     return (
       <div className="l-nav">
@@ -57,9 +64,7 @@ class NavBar extends Component {
         >
           <ul className="l-menu menu">
             <li className='menu-btn'>
-              <Button 
-                generateCards={this.props.generateCards}
-                buttonText={"Home"}/>
+              <a href="#">Home</a>
             </li>
             <li id='logo-parent'>
               <a href="#">
@@ -70,31 +75,28 @@ class NavBar extends Component {
                 />
               </a>
             </li>
-            <li className="menu-btn green">
-              <Button 
-                generateCards={this.props.generateCards}
-                buttonText={"People"}/>
+            <li className="menu-btn green" onClick={this.handleClick}>
+              <a href="#">People</a>
             </li>
-            <li className="menu-btn red">
-              <Button 
-                generateCards={this.props.generateCards}
-                buttonText={"Planets"}/>
+            <li className="menu-btn red" onClick={this.handleClick}>
+              <a href="#">Planets</a>
             </li>
-            <li className="menu-btn yellow">
-              <Button 
-                generateCards={this.props.generateCards}
-                buttonText={"Vehicles"}/>
+            <li className="menu-btn yellow" onClick={this.handleClick}>
+              <a href="#">Vehicles</a>
             </li>
-            <li className="menu-btn purple">
-              <Button 
-                generateCards={this.props.generateCards}
-                buttonText={"Favourites"}/>
+            <li className="menu-btn purple" onClick={this.handleClick}>
+              <a href="#">Favourites</a>
             </li>
           </ul>
         </nav>
       </div>
-    );
+    )
   }
 }
 
-export default NavBar;
+export default NavBar
+
+
+NavBar.propTypes = {
+  generateCards: PropTypes.func
+}

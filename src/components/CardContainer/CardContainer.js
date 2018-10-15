@@ -5,7 +5,7 @@ import Card from "../Card/Card"
 
 const CardContainer = (props) => {
 console.log(props.cards)
-  if (props.cards) {
+  if (props.cards.length) {
 
   const cards = props.cards.map((card, index) => {
       return (

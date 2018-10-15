@@ -28,19 +28,14 @@ class Main extends Component {
     })
   }
 
-  generateCards = query => {
-    const cards = this.state[query].results
-    const category = query;
-    this.setState({ cards, category })
-  };
-
   render() {
+    const {generateCards, cards, currCategory} = this.props
     return (
       <main className="l-main">
-        <NavBar generateCards={this.generateCards}/>
+        <NavBar generateCards={generateCards}/>
         <CardContainer
-          cards={this.state.cards}
-          category={this.state.category}
+          cards={cards}
+          category={currCategory}
         />
       </main>
     )
@@ -52,5 +47,8 @@ export default Main
 Main.propTypes = {
   people: PropTypes.object,
   planets: PropTypes.object,
-  vehicles: PropTypes.object
+  vehicles: PropTypes.object,
+  generateCards: PropTypes.func,
+  cards: PropTypes.array,
+  currCategory: PropTypes.string
 }
