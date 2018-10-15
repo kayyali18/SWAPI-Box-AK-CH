@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import { Route, NavLink } from 'react-router-dom'
 
 import NavBar from "../NavBar/NavBar"
 import CardContainer from "../CardContainer/CardContainer"
@@ -33,10 +34,13 @@ class Main extends Component {
     return (
       <main className="l-main">
         <NavBar generateCards={generateCards}/>
-        <CardContainer
-          cards={cards}
-          category={currCategory}
-        />
+        <Route path={`/${currCategory}`} render={() => {
+          // debugger
+          return (<CardContainer
+            cards={cards}
+            category={currCategory}
+          />)
+        }} />
       </main>
     )
   }
