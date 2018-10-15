@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
-
+import { NavLink } from 'react-router-dom'
 class NavBar extends Component {
   constructor(props) {
     super(props)
@@ -49,7 +49,7 @@ class NavBar extends Component {
         >
           <ul className="l-menu menu">
             <li className='menu-btn'>
-              <a href="#">Home</a>
+            <NavLink to="/">Home</ NavLink>
             </li>
             <li id='logo-parent'>
               <a href="#">
@@ -61,16 +61,16 @@ class NavBar extends Component {
               </a>
             </li>
             <li className="menu-btn green" onClick={this.handleClick}>
-              <a href="#">People</a>
+              <NavLink to="/people">People</ NavLink>
             </li>
             <li className="menu-btn red" onClick={this.handleClick}>
-              <a href="#">Planets</a>
+              <NavLink to="/planets">Planets</ NavLink>
             </li>
             <li className="menu-btn yellow" onClick={this.handleClick}>
-              <a href="#">Vehicles</a>
+              <NavLink to="/vehicles">Vehicles</ NavLink>
             </li>
             <li className="menu-btn purple" onClick={this.handleClick}>
-              <a href="#">Favourites</a>
+              <NavLink to="/favourites">Favourites</ NavLink>
             </li>
           </ul>
         </nav>

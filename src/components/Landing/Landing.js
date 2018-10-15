@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
 
 
 class Landing extends Component {
@@ -28,6 +29,7 @@ class Landing extends Component {
             <p>Did you really expect a button? Just use the force to scroll down</p>
           </div>  
         </div>
+        <NavLink to='/main' className='landing-btn'>Begin the Journey</NavLink>
       </header>
     )
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import "../../styles/App.css"
+import { Route } from 'react-router-dom'
 
 import Main from "../Main/Main"
 import Landing from "../Landing/Landing"
@@ -44,7 +45,8 @@ class App extends Component {
     if (!this.state.films) return null
     return (
       <div className="l-app">
-        <Landing films={this.state.films} />
+        <Route exact path='/' render={() => <Landing films={this.state.films}/> } />
+        
         <Main
           planets={this.state.planets}
           people={this.state.people}
