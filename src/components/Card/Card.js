@@ -1,17 +1,54 @@
 import React, { Component } from "react"
 import PropType from "prop-types"
 
+import * as API from "../../api"
+
 class Card extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      isFavourited: false
+      isFavourited: false,
+      residents: null
     }
   }
 
+  async componentDidMount () {
+    const { residents } = this.props.data
+    const theList = []
+    await residents.forEach(async resident => {
+      const response =  await API.fetchByURL(resident)
+      // console.log (response.name)
+      theList.push(response.name)
+    })
+    this.setState({
+      residents: theList, 
+      
+    }, this.whoLivesHere())
+  }
+  
+  whoLivesHere = () => {
+    const { residents } = this.state
+    if (residents.length == 0) return (<li>No known residents </li>)
+    let counter = 0
+    const list = []
+    console.log (residents[0])
+    while (counter < residents.length) {
+      list.push(residents[counter])
+      console.count()
+      counter++
+    }
+    // console.log (list)
+    return (
+      <ul>
+        {/* {list} */}
+        hi
+      </ul>
+    )
+  }
+
+
   render() {
-    let card
     const { data, category } = this.props
 
     if (category === "planets") {
@@ -27,6 +64,7 @@ class Card extends Component {
             <p>Terrain: {data.terrain}</p>
             <p>Population: {data.population}</p>
             <p>Climate: {data.climate}</p>
+            {/* {this.whoLivesHere()} */}
           </div>
           <div className="card-image" />
         </article>
