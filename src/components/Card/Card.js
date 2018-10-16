@@ -6,39 +6,31 @@ import * as API from "../../api"
 class Card extends Component {
   constructor(props) {
     super(props)
-
+    this.names = []
+    this.setNames = this.fetchCall()
     this.state = {
       isFavourited: false,
-      residents: null
+      stateSet: false
     }
   }
 
-  async componentDidMount () {
+  componentDidMount () {
+   
+    this.setState({stateSet: true})
+  }
+
+  fetchCall = () => {
     const { residents } = this.props.data
-    const theList = []
-    await residents.forEach(async resident => {
-      const response =  await API.fetchByURL(resident)
-      // console.log (response.name)
-      theList.push(response.name)
+    residents.forEach(resident => {
+      API.fetchByURL(resident)
+        .then(response => this.names.push(response.name))
     })
-    this.setState({
-      residents: theList, 
-      
-    }, this.whoLivesHere())
   }
   
   whoLivesHere = () => {
-    const { residents } = this.state
-    if (residents.length == 0) return (<li>No known residents </li>)
-    let counter = 0
-    const list = []
-    console.log (residents[0])
-    while (counter < residents.length) {
-      list.push(residents[counter])
-      console.count()
-      counter++
-    }
-    // console.log (list)
+    // const { residents } = this.state
+    if (this.names.length == 0) return (<li>No known residents </li>)
+    console.log (this.names.length)
     return (
       <ul>
         {/* {list} */}
@@ -50,7 +42,7 @@ class Card extends Component {
 
   render() {
     const { data, category } = this.props
-
+    if (this.names.length < 1 && !data) return null
     if (category === "planets") {
       return (
         // Residents
@@ -64,7 +56,7 @@ class Card extends Component {
             <p>Terrain: {data.terrain}</p>
             <p>Population: {data.population}</p>
             <p>Climate: {data.climate}</p>
-            {/* {this.whoLivesHere()} */}
+            {this.whoLivesHere()}
           </div>
           <div className="card-image" />
         </article>
