@@ -65,7 +65,7 @@ class Card extends Component {
             {this.whoLivesHere()}
           </div>
           <div className="card-image" />
-        </article>
+        </article> 
       )
     } else if (category === "people") {
       return (
