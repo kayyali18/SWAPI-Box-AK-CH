@@ -374,12 +374,16 @@ textarea {
 .nav-logo {
   height: 50px; }
 
+.nav-container {
+  display: flex; }
+
 nav {
   font-family: 'Audiowide', cursive;
   color: white;
   position: relative;
-  transition: transform 0.1s ease; }
+  transition: transform 0.5s ease; }
   nav .menu {
+    width: 200px;
     width: 100vw;
     list-style: none;
     padding: 0;
@@ -397,7 +401,7 @@ nav {
       max-width: 200px;
       width: 0%;
       border-radius: 0px 100px 100px 0px;
-      transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease; }
+      transition: width 0.5s ease, padding 0.5s ease, color 0.2s ease, text-shadow 0.5s ease; }
       nav .menu .menu-btn:hover {
         box-shadow: #4df 0px 0px 20px 2px;
         text-shadow: #4df 0px 0px 6px, #4df 0px 0px 10px; }
@@ -408,6 +412,7 @@ nav {
         text-decoration: none;
         color: inherit;
         max-width: 200px;
+        width: 200px;
         padding-left: 16px; }
       nav .menu .menu-btn.green {
         background: #e6ffe6;

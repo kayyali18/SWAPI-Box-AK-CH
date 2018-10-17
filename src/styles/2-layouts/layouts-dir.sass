@@ -1,9 +1,10 @@
 .l-app 
   display: grid
-  grid-template-areas: "Landing""Main"
+  grid-template-areas: "Landing" "Main"
   background-image: url('./assets/imgs/stars.jpeg')
   height: 100%
   width: 100vw
+
   .l-landing
     grid-area: Landing
     height: 100vh
@@ -23,12 +24,10 @@
   display: grid
   grid-template-rows: 1fr
   grid-gap: 1rem
-  // overflow: scroll
 
   .display-card
     display: grid
     height: 250px
-    
 
     &:nth-child(odd)
       grid-template-columns: 1fr 8.5fr
@@ -39,11 +38,6 @@
       
       .card-image
         grid-area: img
-        // height: 100px
-
-        // position: relative
-        // top: 10%
 
     &:nth-child(even)
       grid-template-columns: 8.5fr 1fr
-
