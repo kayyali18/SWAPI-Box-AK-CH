@@ -4,8 +4,7 @@ export const fetchData = async (category, page) => {
     const response = await fetch(baseURL)
     const data = await response.json()
     return data
-  }
-  catch(error) {
+  } catch (error) {
     console.log(error)
   }
 }
@@ -27,11 +26,10 @@ export const fetchSupp = async (residents) => {
 
 export const fetchByURL = async (url) => {
   try {
-    const response = await fetch (url)
+    const response = await fetch(url)
     const data = await response.json()
     return data
-  }
-  catch(error) {
-    console.log (error)
+  } catch (error) {
+    console.log(error)
   }
 }

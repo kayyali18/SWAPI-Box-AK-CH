@@ -29,7 +29,7 @@ class Card extends Component {
   getPeople = async (homeworld, species) => {
     const params = [homeworld, species]
     const data = await API.fetchSupp(params)
-    this.setState({
+    await this.setState({
       person: {planet: data[0], species: data[1]}
     })
   }
