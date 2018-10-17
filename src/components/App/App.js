@@ -47,7 +47,7 @@ class App extends Component {
       <div className="l-app">
         <Route exact path='/' render={() => <Landing films={this.state.films}/> } />
         
-        <Main
+          <Main
           planets={this.state.planets}
           people={this.state.people}
           vehicles={this.state.vehicles}
@@ -55,6 +55,8 @@ class App extends Component {
           cards={this.state.cards}
           currCategory={this.state.currCategory}
         />
+
+          )} />
       </div>
     )
   }

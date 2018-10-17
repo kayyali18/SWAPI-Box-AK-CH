@@ -18,7 +18,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "eslint": "./node_modules/eslint/bin/eslint.js ./src/*.js",
-    "build-css": "node-sass --include-path sass src/styles/app.sass src/styles/App.css"
+    "build-css": "node-sass --include-path sass --watch src/styles/app.sass src/styles/App.css"
   },
   "eslintConfig": {
     "extends": "react-app"

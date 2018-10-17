@@ -7,142 +7,26 @@
   
 .nav-logo
   height: 50px
-  width: 10vw
 
-.side-section
-  // background-image: url('./assets/imgs/stars.jpeg')
-
-#burger-container
-  width: 80px
-  height: 80px
-  position: relative
-  margin: auto
-
-#burger 
-  cursor: pointer
-  opacity: 0
-  animation: fadein 0.2s ease 1s forwards
-  overflow: hidden
-  position: relative
-  width: 100%
-  height: 100%
-  %burgersection 
-    display: block
-    position: absolute
-    left: 50%
-    transform: translate(-50%,-50%) rotate(0deg)
-    height: 10%
-    width: 70%
-    transform-origin: 50% 50%
-    transition: top 0.4s ease 0.4s,transform 0.4s ease 0.4s
-    &:before, &:after 
-      content: ""
-      display: block
-      height: 40%
-      background: white
-      position: absolute
-      top: 50%
-      transform: translate(0%,-45%)
-      transition: background 0.2s ease, box-shadow 0.2s ease
-    
-    &:before 
-      left: 0
-      width: calc(-1px + 75%)
-      border-radius: 10px 0px 0px 10px
-    
-    &:after 
-      right: 0
-      width: calc(-1px + 25%)
-    
-  
-  
-  &:hover 
-    .bun 
-      &.top:before 
-        background: #FEE
-        box-shadow: #F00 0px 0px 10px 1px
-      
-      &.bottom:before 
-        background: #DFF
-        box-shadow: #0FF 0px 0px 10px 1px
-      
-    
-    .filling 
-      &:before 
-        background: #EFE
-        box-shadow: #0F0 0px 0px 10px 1px
-      
-    
-  
-  
-  .bun 
-    @extend %burgersection
-    &.top 
-      top: 25%
-    
-    &.bottom 
-      top: 75%
-    
-  
-  .filling 
-    @extend %burgersection
-    top: 50%
-    transform: translate(-50%,-50%) rotate(180deg)
-    animation: green-ls-out 0.8s ease forwards
-
-  
-  
-  &.active 
-    .bun 
-      border-radius: 3px
-      top: 50%
-      transition: top 0.4s ease, transform 0.4s ease
-      &.top 
-        transform: translate(-50%,-50%) rotate(-225deg)
-      
-      &.bottom 
-        transform: translate(-50%,-50%) rotate(405deg)
-      
-    
-    .filling 
-      transform: translate(-50%,-50%) rotate(-90deg)
-      animation: green-ls-in 0.8s ease forwards
-    
-  
 nav  
-  background-color: white
-
-  &.show  
-    transform: translatey(0%) 
-    animation: fadein 1s 
-    display: inline
-
-  
   font-family: 'Audiowide', cursive
   color: white 
-  background: #222 
   position: relative 
-  transform: translatey(-3000%) 
   transition: transform 0.1s ease 
-  // bottom: 0px 
-  .menu  
 
+  .menu  
     width: 100vw
     list-style: none 
     padding: 0 
-    // text-align: center
     margin: 0 
-    margin-block-start: 0
-    margin-block-end: 0
-    // font-weight:bolder 
+
     .menu-btn  
       +lightsaber(#4df) 
-      font-size: 16pt 
+      font-size: 1.75em 
       line-height: 16pt
       padding: 0px
       height: 20px
       margin: 26px 0px 
-      text-align: justify
       position: relative
       left: 4rem
       max-width: 200px
@@ -171,39 +55,7 @@ nav
       &.yellow  
         @include lightsaber(#FF0) 
        
-
 #logo-parent
   text-align: center
-   
- 
-
-@keyframes green-ls-in  
-  0%   
-    transform: translate(-50%,-50%) rotate(180deg)   
-  50%   
-    transform: translate(-50%,-50%) rotate(-90deg)   
-  100%  
-    transform: translate(-50%,-50%) rotate(-90deg) translate(200%,0%)  
- 
-
-@keyframes green-ls-out  
-  0%  
-    transform: translate(-50%,-200%) rotate(-90deg)  
-  50%   
-    transform: translate(-50%,-50%) rotate(-90deg)   
-
-  100%   
-    transform: translate(-50%,-50%) rotate(180deg)   
- 
-
-@keyframes fadein  
-  from  
-    Opacity: 0 
-   
-  to  
-    Opacity: 1 
-   
- 
-
 
 // font-family: 'Audiowide', cursive
