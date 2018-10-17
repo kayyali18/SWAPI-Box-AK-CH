@@ -23,7 +23,7 @@ class Card extends Component {
   
   getPlanets = async (residents) => {
     const response = await API.fetchSupp(residents)
-    this.setState({residents: response.map(x => x.name)})
+    await this.setState({residents: response.map(x => x.name)})
   }
 
   getPeople = async (homeworld, species) => {
@@ -48,7 +48,7 @@ class Card extends Component {
 
   render() {
     const { data, category } = this.props
-    if (this.names.length < 1 && !data) return null
+    if ((this.names.length < 1 && !data) || !this.state.person) return null
     if (category === "planets") {
       return (
         // Residents
@@ -79,6 +79,11 @@ class Card extends Component {
         >
           <div className="card-content">
             <h3>{data.name}</h3>
+            <ul>
+              <li>Homeworld: {this.state.person.planet.name}</li>
+              <li>Species: {this.state.person.species.name}</li>
+              <li>Population: {this.state.person.planet.population}</li>
+            </ul>
           </div>
           <div className="card-image" />
         </article>
