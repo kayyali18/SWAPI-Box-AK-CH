@@ -18,49 +18,6 @@
 
     .l-card-container
       grid-area: display
-    
-    .l-nav
-      grid-area: nav
-      display: grid
-      grid-template-areas: "burger" "nav-container"
-      grid-template-rows: 1fr 2fr
-      // height: 210px
-
-    .nav-container
-      height: 100%
-      grid-area: nav-container
-
-    
-    .l-menu
-      display: grid
-      grid-template-areas: ". . Home Logo People . ." ". . Planets Vehicles Favourites . ."
-      grid-template-columns: repeat(2, calc(100%/7)) repeat(3, calc(100%/7)) repeat(2, calc(100%/7))
-      // grid-auto-columns: 1fr 
-      // justify-items: start
-      padding: 2rem 0
-
-      height: 100%
-    
-
-      li 
-        &:first-child
-          grid-area: Home
-      li 
-        &:nth-child(2)
-          grid-area: Logo
-
-        &:nth-child(3)
-          grid-area: People
-
-        &:nth-child(4)
-          grid-area: Planets
-        
-        &:nth-child(5)
-          grid-area: Vehicles
-
-        &:nth-child(6)
-          grid-area: Favourites
-
 
 .l-card-container
   display: grid

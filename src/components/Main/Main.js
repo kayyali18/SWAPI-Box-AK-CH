@@ -33,9 +33,13 @@ class Main extends Component {
     const {generateCards, cards, currCategory} = this.props
     return (
       <main className="l-main">
-        <NavBar generateCards={generateCards}/>
-        <Route path={`/${currCategory}`} render={() => {
-          // debugger
+        <Route path='/main' render={() => 
+          (
+            <NavBar generateCards={generateCards} />
+            )
+        } />
+        
+        <Route path={`/main/${currCategory}`} render={() => {
           return (<CardContainer
             cards={cards}
             category={currCategory}
