@@ -15,24 +15,15 @@ class Card extends Component {
     }
   }
 
-  componentDidMount () {
-    const { residents, homeworld, species } = this.props.data
-    if (residents) this.getPlanets (residents)
-    else if (homeworld) this.getPeople (homeworld, species)
-  }
+  // componentDidMount () {
+  //   const { residents, homeworld, species } = this.props.data
+  //   const { getPlanets, getPeople } = this.props
+  //   console.log (this.me)
+  //   if (residents) getPlanets (residents)
+  //   else if (homeworld) getPeople (homeworld, species)
+  // }
   
-  getPlanets = async (residents) => {
-    const response = await API.fetchSupp(residents)
-    await this.setState({residents: response.map(x => x.name)})
-  }
 
-  getPeople = async (homeworld, species) => {
-    const params = [homeworld, species]
-    const data = await API.fetchSupp(params)
-    await this.setState({
-      person: {planet: data[0], species: data[1]}
-    })
-  }
 
   whoLivesHere = () => {
     const { residents } = this.state
@@ -48,8 +39,8 @@ class Card extends Component {
 
   render() {
     const { data, category } = this.props
-    if ((this.names.length < 1 && !data) || !this.state.person) return null
-    if (category === "planets") {
+    if ( !this.state.stateSet ) return null
+    if (category === "planets" && this.names.length >= 1) {
       return (
         // Residents
         // A button to “Favorite” the planet
@@ -67,7 +58,7 @@ class Card extends Component {
           <div className="card-image" />
         </article> 
       )
-    } else if (category === "people") {
+    } else if (category === "people" && this.state.people) {
       return (
         // Homeworld
         // Species
@@ -108,7 +99,7 @@ class Card extends Component {
           <div className="card-image" />
         </article>
       )
-    }
+    } else return <h1>Loading </h1>
   }
 }
 

@@ -3,6 +3,22 @@ export const fetchData = async (category, page) => {
     const baseURL = `https://swapi.co/api/${category}/?page=${page}`
     const response = await fetch(baseURL)
     const data = await response.json()
+    if (category == 'planets') {
+      const planets = data.results.map (async entry => {
+        const response = await fetchSupp(entry.residents)
+        return response
+      })
+      return planets
+    } else if (category == 'people') {
+      const people = data.results.map (async entry => {
+        let species = entry.species
+        let homeworld = entry.homeworld
+        const params = [homeworld, species]
+        const response = await fetchSupp(params)
+        return response 
+      })
+      return people
+    }
     return data
   } catch (error) {
     console.log(error)
@@ -17,6 +33,7 @@ export const fetchAllData = (categories) => {
 }
 
 export const fetchSupp = async (residents) => {
+  console.log (residents)
   const names = residents.map(async url => {
     const response = await fetchByURL(url)
     return response
