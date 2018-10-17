@@ -1,19 +1,54 @@
 import React, { Component } from "react"
 import PropType from "prop-types"
 
+import * as API from "../../api"
+
 class Card extends Component {
   constructor(props) {
     super(props)
-
+    this.names = []
+    // this.setNames = this.fetchCall()
     this.state = {
-      isFavourited: false
+      isFavourited: false,
+      stateSet: false,
+      residents: []
     }
   }
 
-  render() {
-    let card
-    const { data, category } = this.props
+  componentDidMount () {
+    const { residents, homeworld, species } = this.props.data
+    if (residents) this.getPlanets (residents)
+    else if (homeworld) this.getPeople (homeworld, species)
+  }
+  
+  getPlanets = async (residents) => {
+    const response = await API.fetchSupp(residents)
+    this.setState({residents: response.map(x => x.name)})
+  }
 
+  getPeople = async (homeworld, species) => {
+    const params = [homeworld, species]
+    const data = await API.fetchSupp(params)
+    this.setState({
+      person: {planet: data[0], species: data[1]}
+    })
+  }
+
+  whoLivesHere = () => {
+    const { residents } = this.state
+    if (residents.length == 0) return (<li>No known residents </li>)
+    const names = residents.map(res => <li key={`${res}`}>{res}</li>)
+    return (
+      <ul>
+        {names}
+      </ul>
+    )
+  }
+
+
+  render() {
+    const { data, category } = this.props
+    if (this.names.length < 1 && !data) return null
     if (category === "planets") {
       return (
         // Residents
@@ -27,6 +62,7 @@ class Card extends Component {
             <p>Terrain: {data.terrain}</p>
             <p>Population: {data.population}</p>
             <p>Climate: {data.climate}</p>
+            {this.whoLivesHere()}
           </div>
           <div className="card-image" />
         </article>

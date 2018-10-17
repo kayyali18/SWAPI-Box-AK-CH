@@ -4,18 +4,17 @@ import PropTypes from "prop-types"
 import Card from "../Card/Card"
 
 const CardContainer = (props) => {
-console.log(props.cards)
   if (props.cards.length) {
 
-  const cards = props.cards.map((card, index) => {
+    const cards = props.cards.map((card, index) => {
       return (
         <Card
           data={card}
           key={index}
           category={props.category}
         />
-        )
-      })
+      )
+    })
 
     return (
       <section className="l-card-container card-container">
@@ -33,4 +32,4 @@ CardContainer.propTypes = {
   vehicles: PropTypes.object
 }
 
-export default CardContainer;
+export default CardContainer

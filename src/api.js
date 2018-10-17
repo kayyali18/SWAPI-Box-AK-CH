@@ -16,3 +16,22 @@ export const fetchAllData = (categories) => {
   })
   return Promise.all(unresolvedPromises)
 }
+
+export const fetchSupp = async (residents) => {
+  const names = residents.map(async url => {
+    const response = await fetchByURL(url)
+    return response
+  })
+  return Promise.all(names)
+}
+
+export const fetchByURL = async (url) => {
+  try {
+    const response = await fetch (url)
+    const data = await response.json()
+    return data
+  }
+  catch(error) {
+    console.log (error)
+  }
+}
