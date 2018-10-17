@@ -19,19 +19,19 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div className="l-nav">
+      <div className='nav-container'>
         <nav>
           <ul className="l-menu menu">
-            <li className='menu-btn'>
-              <NavLink to="/">Home</NavLink>
-            </li>
             <li id='logo-parent'>
-              <a href="#">
+              <NavLink to="/">
                 <img
                   className="nav-logo"
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
                   alt="Star Wars Logo" />
-              </a>
+              </NavLink>
+            </li>
+            <li className='menu-btn'>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li className="menu-btn green" onClick={this.handleClick}>
               <NavLink to="/main/people">People</NavLink>

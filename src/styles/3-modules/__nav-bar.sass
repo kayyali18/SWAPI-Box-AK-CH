@@ -8,13 +8,17 @@
 .nav-logo
   height: 50px
 
+.nav-container
+  display: flex
+
 nav  
   font-family: 'Audiowide', cursive
   color: white 
   position: relative 
-  transition: transform 0.1s ease 
+  transition: transform 0.5s ease 
 
   .menu  
+    width: 200px
     width: 100vw
     list-style: none 
     padding: 0 
@@ -32,15 +36,16 @@ nav
       max-width: 200px
       width: 0%
       border-radius: 0px 100px 100px 0px 
-      transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease 
+      transition: width 0.5s ease, padding 0.5s ease, color 0.2s ease, text-shadow 0.5s ease 
       &:hover  
         width: 80% 
         color:  black 
        
-      a  
+      a
         text-decoration: none 
         color: inherit 
         max-width: 200px
+        width: 200px
         padding-left: 16px
        
       &.green  
