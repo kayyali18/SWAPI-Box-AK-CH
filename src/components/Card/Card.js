@@ -7,34 +7,40 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.names = []
-    this.setNames = this.fetchCall()
+    // this.setNames = this.fetchCall()
     this.state = {
       isFavourited: false,
-      stateSet: false
+      stateSet: false,
+      residents: []
     }
   }
 
   componentDidMount () {
-   
-    this.setState({stateSet: true})
-  }
-
-  fetchCall = () => {
-    const { residents } = this.props.data
-    residents.forEach(resident => {
-      API.fetchByURL(resident)
-        .then(response => this.names.push(response.name))
-    })
+    const { residents, homeworld, species } = this.props.data
+    if (residents) this.getPlanets (residents)
+    else if (homeworld) this.getPeople (homeworld, species)
   }
   
+  getPlanets = async (residents) => {
+    const response = await API.fetchSupp(residents)
+    this.setState({residents: response.map(x => x.name)})
+  }
+
+  getPeople = async (homeworld, species) => {
+    const params = [homeworld, species]
+    const data = await API.fetchSupp(params)
+    this.setState({
+      person: {planet: data[0], species: data[1]}
+    })
+  }
+
   whoLivesHere = () => {
-    // const { residents } = this.state
-    if (this.names.length == 0) return (<li>No known residents </li>)
-    console.log (this.names.length)
+    const { residents } = this.state
+    if (residents.length == 0) return (<li>No known residents </li>)
+    const names = residents.map(res => <li key={`${res}`}>{res}</li>)
     return (
       <ul>
-        {/* {list} */}
-        hi
+        {names}
       </ul>
     )
   }

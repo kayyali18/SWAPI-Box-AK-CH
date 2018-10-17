@@ -17,6 +17,14 @@ export const fetchAllData = (categories) => {
   return Promise.all(unresolvedPromises)
 }
 
+export const fetchSupp = async (residents) => {
+  const names = residents.map(async url => {
+    const response = await fetchByURL(url)
+    return response
+  })
+  return Promise.all(names)
+}
+
 export const fetchByURL = async (url) => {
   try {
     const response = await fetch (url)
