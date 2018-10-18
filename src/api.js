@@ -1,11 +1,12 @@
 export const fetchData = async (category) => {
   const url = `https://swapi.co/api/${category}/`
+  const data, suppData, filteredData;
   try {
     switch (category) {
       case 'people':
-        const data = await fetchByURL(url)
-        const suppData = await fetchPeopleExtras(data)
-        const filteredData = filterData(data.results, suppData)
+        data = await fetchByURL(url)
+        suppData = await fetchPeopleExtras(data)
+        filteredData = filterData(data.results, suppData)
         JSON.stringify(localStorage.setItem('people', filteredData));
         return filteredData;
       break;
