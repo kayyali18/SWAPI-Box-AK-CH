@@ -12,6 +12,8 @@ const CardContainer = (props) => {
           data={card}
           key={index}
           category={props.category}
+          getPlanets={props.getPlanets}
+          getPeople={props.getPeople}
         />
       )
     })

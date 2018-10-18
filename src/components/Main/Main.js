@@ -5,6 +5,7 @@ import { Route, NavLink } from 'react-router-dom'
 import NavBar from "../NavBar/NavBar"
 import CardContainer from "../CardContainer/CardContainer"
 import Card from "../Card/Card"
+import * as API from './../../api'
 
 
 class Main extends Component {
@@ -28,6 +29,20 @@ class Main extends Component {
       vehicles
     })
   }
+
+  // async getPlanets (residents) {
+  //   const response = await API.fetchSupp(residents)
+  //   await this.setState({residents: response.map(x => x.name), stateSet: true}, console.log(response))
+  // }
+
+  // async getPeople (homeworld, species) => {
+  //   const params = [homeworld, species]
+  //   const data = await API.fetchSupp(params)
+  //   await this.setState({
+  //     person: {planet: data[0], species: data[1]},
+  //     stateSet: true
+  //   })
+  // }
 
   render() {
     const {generateCards, cards, currCategory} = this.props
