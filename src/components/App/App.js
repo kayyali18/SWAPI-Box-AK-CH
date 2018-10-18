@@ -27,12 +27,12 @@ class App extends Component {
 
   async componentDidMount() {
     const { categories } = this.state
-    const result = await API.fetchData('people')
+    const result = await API.fetchData('films')
     this.setState({
       // planets: result[0],
-      people: result,
+      // people: result,
       // vehicles: result[2],
-      // films: result[3]
+      films: result
     })
   }
 
