@@ -27,13 +27,13 @@ class App extends Component {
 
   async componentDidMount() {
     const { categories } = this.state
-    const result = await API.fetchAllData(categories)
-    this.setState({
-      planets: result[0],
-      people: result[1],
-      vehicles: result[2],
-      films: result[3]
-    })
+    const result = API.fetchData('people')
+    // this.setState({
+    //   planets: result[0],
+    //   people: result[1],
+    //   vehicles: result[2],
+    //   films: result[3]
+    // })
   }
 
   generateCards = query => {
