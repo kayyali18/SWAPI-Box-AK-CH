@@ -27,7 +27,8 @@ class App extends Component {
 
   async componentDidMount() {
     const { categories } = this.state
-    const result = API.fetchData('people')
+    const result = await API.fetchData('people')
+    console.log(result)
     // this.setState({
     //   planets: result[0],
     //   people: result[1],

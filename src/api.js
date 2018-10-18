@@ -1,9 +1,13 @@
 export const fetchData = async (category) => {
-  console.log('works')
+  const url = `https://swapi.co/api/${category}/`
   try {
     switch (category) {
       case 'people':
-      console.log('this is people')
+        const data = await fetchByURL(url)
+        const suppData = await fetchPeopleExtras(data)
+        const filteredData = filterData(data.results, suppData)
+        
+        return filteredData;
       break;
     default:
       console.log('Sorry.')
@@ -13,6 +17,14 @@ export const fetchData = async (category) => {
       console.log(error)
     }
 }
+
+  const filterData = (data, suppData) => {
+    const filteredData = data.map((person, index) => {
+      const combined = {main: person, supp: suppData[index], key: person.name}
+      return combined;
+    })
+    return filteredData;
+  }
 
 
 
@@ -50,21 +62,23 @@ export const fetchData = async (category) => {
 //   return Promise.all(unresolvedPromises)
 // }
 
-// export const fetchSupp = async (residents) => {
-//   console.log (residents)
-//   const names = residents.map(async url => {
-//     const response = await fetchByURL(url)
-//     return response
-//   })
-//   return Promise.all(names)
-// }
+export const fetchPeopleExtras = async (data) => {
+  const extras = data.results.map(async entry => {
+    let homeworld = await fetchByURL(entry.homeworld)
+    let species = await fetchByURL(entry.species)
+    let combined = {homeworld: homeworld.name, population: homeworld.population, species: species.name}
+    return combined
+  })
 
-// export const fetchByURL = async (url) => {
-//   try {
-//     const response = await fetch(url)
-//     const data = await response.json()
-//     return data
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+  return Promise.all(extras)
+}
+
+export const fetchByURL = async (url) => {
+  try {
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.log(error)
+  }
+}
