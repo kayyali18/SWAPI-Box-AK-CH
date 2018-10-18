@@ -15,10 +15,10 @@ class App extends Component {
       vehicles: [],
       films: null,
       categories: [
-        { category: "planets", page: 1 },
-        { category: "people", page: 1 },
-        { category: "vehicles", page: 1 },
-        { category: "films", page: 1 }
+        { category: "planets" },
+        { category: "people" },
+        { category: "vehicles" },
+        { category: "films" }
       ],
       cards: [],
       currCategory: ''
@@ -28,13 +28,12 @@ class App extends Component {
   async componentDidMount() {
     const { categories } = this.state
     const result = await API.fetchData('people')
-    console.log(result)
-    // this.setState({
-    //   planets: result[0],
-    //   people: result[1],
-    //   vehicles: result[2],
-    //   films: result[3]
-    // })
+    this.setState({
+      // planets: result[0],
+      people: result,
+      // vehicles: result[2],
+      // films: result[3]
+    })
   }
 
   generateCards = query => {

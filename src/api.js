@@ -6,7 +6,7 @@ export const fetchData = async (category) => {
         const data = await fetchByURL(url)
         const suppData = await fetchPeopleExtras(data)
         const filteredData = filterData(data.results, suppData)
-        
+        JSON.stringify(localStorage.setItem('people', filteredData));
         return filteredData;
       break;
     default:
