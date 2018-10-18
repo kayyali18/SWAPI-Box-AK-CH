@@ -33,8 +33,6 @@ class App extends Component {
       [currCategory]: result,
       cards: result
     })
-
-
   }
 
   generateCards = query => {

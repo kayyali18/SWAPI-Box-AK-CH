@@ -7,7 +7,6 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.names = []
-    // this.setNames = this.fetchCall()
     this.state = {
       isFavourited: false,
       stateSet: false,
@@ -30,8 +29,6 @@ class Card extends Component {
     const { data, category } = this.props
 
     return (
-        // Residents
-        // A button to “Favorite” the planet
       <article
         className="display-card"
         aria-label="Individual display of results"
@@ -52,10 +49,6 @@ class Card extends Component {
     const { data, category } = this.props
 
     return (
-  // Homeworld
-  // Species
-  // Population of Homeworld
-  // A button to “Favorite” the person
       <article
         className="display-card"
         aria-label="Individual display of results"
@@ -73,7 +66,6 @@ class Card extends Component {
     )
   }
 
-
   render() {
     const { data, category } = this.props
     if (category === "planets") {
@@ -84,11 +76,6 @@ class Card extends Component {
 
     } else if (category === "vehicles") {
       return (
-        // Name
-        // Model
-        // Class
-        // Number of Passengers
-        // A button to “Favorite” the vehicle
         <article
           className="display-card"
           aria-label="Individual display of results"
