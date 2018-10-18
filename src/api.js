@@ -1,6 +1,10 @@
 export const fetchData = async (category) => {
   const url = `https://swapi.co/api/${category}/`
-  const data, suppData, filteredData;
+  let data, suppData, filteredData
+  const item = localStorage.getItem('people')
+
+  if (checkStorage(item)) return item
+
   try {
     switch (category) {
       case 'people':
@@ -8,6 +12,7 @@ export const fetchData = async (category) => {
         suppData = await fetchPeopleExtras(data)
         filteredData = filterData(data.results, suppData)
         JSON.stringify(localStorage.setItem('people', filteredData));
+
         return filteredData;
       break;
     default:
@@ -22,9 +27,18 @@ export const fetchData = async (category) => {
   const filterData = (data, suppData) => {
     const filteredData = data.map((person, index) => {
       const combined = {main: person, supp: suppData[index], key: person.name}
+      
       return combined;
     })
     return filteredData;
+  }
+
+  const checkStorage = (item) => {
+    const thing = JSON.parse(localStorage.getItem(item))
+
+    if (thing) return thing
+
+    return false
   }
 
 
@@ -67,7 +81,8 @@ export const fetchPeopleExtras = async (data) => {
   const extras = data.results.map(async entry => {
     let homeworld = await fetchByURL(entry.homeworld)
     let species = await fetchByURL(entry.species)
-    let combined = {homeworld: homeworld.name, population: homeworld.population, species: species.name}
+    let combined = { homeworld: homeworld.name, population: homeworld.population, species: species.name }
+
     return combined
   })
 
@@ -78,7 +93,9 @@ export const fetchByURL = async (url) => {
   try {
     const response = await fetch(url)
     const data = await response.json()
+
     return data
+
   } catch (error) {
     console.log(error)
   }
