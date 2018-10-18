@@ -14,17 +14,7 @@ class Card extends Component {
       residents: []
     }
   }
-
-  // componentDidMount () {
-  //   const { residents, homeworld, species } = this.props.data
-  //   const { getPlanets, getPeople } = this.props
-  //   console.log (this.me)
-  //   if (residents) getPlanets (residents)
-  //   else if (homeworld) getPeople (homeworld, species)
-  // }
   
-
-
   whoLivesHere = () => {
     const { residents } = this.state
     if (residents.length == 0) return (<li>No known residents </li>)
@@ -36,49 +26,62 @@ class Card extends Component {
     )
   }
 
+  planetsDisplay = () => {
+    const { data, category } = this.props
+
+    return (
+        // Residents
+        // A button to “Favorite” the planet
+      <article
+        className="display-card"
+        aria-label="Individual display of results"
+      >
+        <div className="card-content">
+          <h3>{data.name}</h3>
+          <p>Terrain: {data.terrain}</p>
+          <p>Population: {data.population}</p>
+          <p>Climate: {data.climate}</p>
+          {this.whoLivesHere()}
+        </div>
+        <div className="card-image" />
+      </article> 
+    )
+  }
+
+  peopleDisplay = () => {
+    const { data, category } = this.props
+
+    return (
+  // Homeworld
+  // Species
+  // Population of Homeworld
+  // A button to “Favorite” the person
+      <article
+        className="display-card"
+        aria-label="Individual display of results"
+      >
+        <div className="card-content">
+          <h3>{data.main.name}</h3>
+          <ul>
+            <li>Homeworld: {data.supp.homeworld}</li>
+            <li>Species: {data.supp.species}</li>
+            <li>Population: {data.supp.population}</li>
+          </ul>
+        </div>
+        <div className="card-image" />
+      </article>
+    )
+  }
+
 
   render() {
     const { data, category } = this.props
-    if ( !this.state.stateSet ) return null
-    if (category === "planets" && this.names.length >= 1) {
-      return (
-        // Residents
-        // A button to “Favorite” the planet
-        <article
-          className="display-card"
-          aria-label="Individual display of results"
-        >
-          <div className="card-content">
-            <h3>{data.name}</h3>
-            <p>Terrain: {data.terrain}</p>
-            <p>Population: {data.population}</p>
-            <p>Climate: {data.climate}</p>
-            {this.whoLivesHere()}
-          </div>
-          <div className="card-image" />
-        </article> 
-      )
-    } else if (category === "people" && this.state.people) {
-      return (
-        // Homeworld
-        // Species
-        // Population of Homeworld
-        // A button to “Favorite” the person
-        <article
-          className="display-card"
-          aria-label="Individual display of results"
-        >
-          <div className="card-content">
-            <h3>{data.name}</h3>
-            <ul>
-              <li>Homeworld: {this.state.person.planet.name}</li>
-              <li>Species: {this.state.person.species.name}</li>
-              <li>Population: {this.state.person.planet.population}</li>
-            </ul>
-          </div>
-          <div className="card-image" />
-        </article>
-      )
+    if (category === "planets") {
+      return this.planetsDisplay()
+
+    } else if (category === "people") {
+      return this.peopleDisplay();
+
     } else if (category === "vehicles") {
       return (
         // Name
