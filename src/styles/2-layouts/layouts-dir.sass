@@ -1,6 +1,4 @@
 .l-app 
-  display: grid
-  grid-template-areas: "Landing" "Main"
   background-image: url('./assets/imgs/stars.jpeg')
   height: 100%
   width: 100vw
@@ -9,35 +7,3 @@
     grid-area: Landing
     height: 100vh
     text-align: center
-  
-  .l-main 
-    grid-area: Main
-    display: grid
-    grid-template-areas: "nav" "display"
-    grid-template-rows: 350px 8.5fr 
-    height: 100%
-
-    .l-card-container
-      grid-area: display
-
-.l-card-container
-  display: grid
-  grid-template-rows: 1fr
-  grid-gap: 1rem
-
-  .display-card
-    display: grid
-    height: 250px
-
-    &:nth-child(odd)
-      grid-template-columns: 1fr 8.5fr
-      grid-template-areas: "img card"
-         
-      .card-content
-        grid-area: card
-      
-      .card-image
-        grid-area: img
-
-    &:nth-child(even)
-      grid-template-columns: 8.5fr 1fr
