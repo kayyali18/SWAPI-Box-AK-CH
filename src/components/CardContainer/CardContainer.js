@@ -12,13 +12,11 @@ const CardContainer = (props) => {
           data={card}
           key={index}
           category={props.category}
-          getPlanets={props.getPlanets}
-          getPeople={props.getPeople}
         />
       )
     })
 
-    return (
+    return ( 
       <section className="l-card-container card-container">
         { cards }
       </section>
@@ -31,7 +29,9 @@ const CardContainer = (props) => {
 CardContainer.propTypes = {
   people: PropTypes.object,
   planets: PropTypes.object,
-  vehicles: PropTypes.object
+  vehicles: PropTypes.object,
+  planetSupp: PropTypes.object,
+  peopleSupp: PropTypes.object
 }
 
 export default CardContainer
