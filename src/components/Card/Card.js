@@ -16,7 +16,7 @@ class Card extends Component {
   whoLivesHere = () => {
     const { data } = this.props
     if (data.supp.length == 0) return (<li>No known residents </li>)
-    const names = data.supp.map(res => <li key={`${res}`}>{res}</li>)
+    const names = data.supp.map(res => <li className='resident' key={`${res}`}>{res}</li>)
     return (
       <ul>
         {names}
@@ -33,10 +33,10 @@ class Card extends Component {
         className={`display-card ${joinedName}`}
         aria-label="Individual display of results">
         <div className='card-text hide'>
-          <h3>{data.name}</h3>
-            <p>Terrain: {data.terrain}</p>
-            <p>Population: {data.population}</p>
-            <p>Climate: {data.climate}</p>
+          <h3>{data.main.name}</h3>
+            <p>Terrain: {data.main.terrain}</p>
+            <p>Population: {data.main.population}</p>
+            <p>Climate: {data.main.climate}</p>
           {this.whoLivesHere()}
         </div>
       </article> 
@@ -63,6 +63,8 @@ class Card extends Component {
 
   vehicleDisplay = () => {
     const {data} = this.props
+    const joinedName = (data.name).split(' ').join('')
+
     return (
       <article
         className={`display-card ${joinedName}`}
@@ -80,7 +82,6 @@ class Card extends Component {
 
   render() {
     const { data, category } = this.props
-    const joinedName = (data.main.name).split(' ').join('')
 
     if (category === "planets") {
       return this.planetsDisplay()
