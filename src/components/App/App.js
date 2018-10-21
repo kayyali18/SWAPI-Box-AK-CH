@@ -48,9 +48,8 @@ class App extends Component {
         
         <Route path='/main' render={() => (
           <Main
-          planets={this.state.planets}
-          people={this.state.people}
-          vehicles={this.state.vehicles}
+          peopleSupp={this.state.peopleSupp}
+          planetSupp={this.state.planetSupp}
           generateCards={this.generateCards}
           cards={this.state.cards}
           currCategory={this.state.currCategory}

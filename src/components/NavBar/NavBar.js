@@ -17,7 +17,7 @@ class NavBar extends Component {
     this.props.generateCards(query)
   }
 
-  render() {
+  render() { 
     return (
       <div className='nav-container'>
         <nav>

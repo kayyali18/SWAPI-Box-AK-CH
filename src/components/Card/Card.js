@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import PropType from "prop-types"
 
-import * as API from "../../api"
 
 class Card extends Component {
   constructor(props) {
@@ -78,12 +77,16 @@ class Card extends Component {
               <p>Number of Passengers: {data.passengers}</p>
         </article>
       )
-    } else return <h1>Loading </h1>
+    }
+    return <h1 className='main-loader'>Loading </h1>
   }
 }
 
-export default Card
 
 Card.propType = {
-  data: PropType.object
+  data: PropType.object,
+  category: PropType.string,
+  planetSupp: PropType.object,
+  peopleSupp: PropType.object
 }
+export default Card

@@ -9,45 +9,11 @@ import * as API from './../../api'
 
 
 class Main extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      planets: null,
-      people: null,
-      vehicles: null,
-      category: null,
-      cards: null
-    }
-  }
-
-  componentDidMount = () => {
-    const { people, planets, vehicles } = this.props
-    this.setState({
-      planets,
-      people,
-      vehicles
-    })
-  }
-
-  // async getPlanets (residents) {
-  //   const response = await API.fetchSupp(residents)
-  //   await this.setState({residents: response.map(x => x.name), stateSet: true}, console.log(response))
-  // }
-
-  // async getPeople (homeworld, species) => {
-  //   const params = [homeworld, species]
-  //   const data = await API.fetchSupp(params)
-  //   await this.setState({
-  //     person: {planet: data[0], species: data[1]},
-  //     stateSet: true
-  //   })
-  // }
-
-  render() {
+  
+  render() { 
     const {generateCards, cards, currCategory} = this.props
     return (
-      <main className="l-main">
+      <main className="l-main main-loader">
         <Route path='/main' render={() => 
           (
             <NavBar generateCards={generateCards} />

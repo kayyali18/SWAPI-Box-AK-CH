@@ -410,6 +410,7 @@ nav {
           text-shadow: #FF0 0px 0px 6px, #FF0 0px 0px 10px; }
 
 #logo-parent {
+<<<<<<< HEAD
   text-align: center; }
 
 .l-card-container {
@@ -445,3 +446,50 @@ nav {
     background-image: url("./assets/imgs/Biggs Darklighter.jpg"); }
   .l-card-container .Obi-WanKenobi {
     background-image: url("./assets/imgs/Obi-Wan Kenobi.jpg"); }
+=======
+  text-align: center;
+}
+
+.l-card-container .display-card:nth-child(1n) {
+  background: #ecfcff;
+  box-shadow: #ecfcff 0px 0px 0px 2px;
+}
+.l-card-container .display-card:nth-child(1n):hover {
+  box-shadow: #4df 0px 0px 20px 2px;
+}
+.l-card-container .display-card:nth-child(2n) {
+  background: #ffe6e6;
+  box-shadow: #ffe6e6 0px 0px 0px 2px;
+}
+.l-card-container .display-card:nth-child(2n):hover {
+  box-shadow: #F00 0px 0px 20px 2px;
+}
+.l-card-container .card-image {
+  background-image: url("./assets/imgs/starwars.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-loader:empty {
+  position: absolute;
+  top: calc(50% - 4em);
+  left: calc(50% - 4em);
+  width: 6em;
+  height: 6em;
+  border: 1.1em solid rgba(0, 0, 0, 0.2);
+  border-left: 1.1em solid #000000;
+  border-radius: 50%;
+  animation: loader 1.1s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=App.css.map */
+>>>>>>> Fix all our issues, fromfetching to json to display
