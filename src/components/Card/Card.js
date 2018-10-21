@@ -16,7 +16,7 @@ class Card extends Component {
   whoLivesHere = () => {
     const { data } = this.props
     if (data.supp.length == 0) return (<li>No known residents </li>)
-    const names = data.supp.map(res => <li classname='resident' key={`${res}`}>{res}</li>)
+    const names = data.supp.map(res => <li className='resident' key={`${res}`}>{res}</li>)
     return (
       <ul>
         {names}
