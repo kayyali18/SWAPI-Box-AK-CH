@@ -19,7 +19,7 @@ class NavBar extends Component {
 
   render() { 
     return (
-      <div className='nav-container'>
+      <div className='nav-container l-nav'>
         <nav>
           <ul className="l-menu menu">
             <li id='logo-parent'>
