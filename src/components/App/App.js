@@ -47,7 +47,7 @@ class App extends Component {
 
   generateCards = async query => {
     const result = await API.fetchData(query)
-    this.setState({ cards:result, currCategory:query })
+    this.setState({ cards: result, currCategory:query })
   };
 
   render() {

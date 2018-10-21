@@ -12,8 +12,6 @@ const CardContainer = (props) => {
           data={card}
           key={index}
           category={props.category}
-          planetSupp={props.planetSupp}
-          peopleSupp={props.peopleSupp}
         />
       )
     })

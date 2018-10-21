@@ -42,7 +42,7 @@ class Card extends Component {
   }
 
   peopleDisplay = () => {
-    const { data, category } = this.props
+    const { data } = this.props
     const joinedName = (data.main.name).split(' ').join('')
 
     return (
@@ -57,6 +57,21 @@ class Card extends Component {
     )
   }
 
+  vehicleDisplay = () => {
+    const {data} = this.props
+    return (
+      <article
+        className="display-card"
+        aria-label="Individual display of results"
+      >
+          <h3>{data.name}</h3>
+            <p>Model: {data.model}</p>
+            <p>Class: {data.vehicle_class}</p>
+            <p>Number of Passengers: {data.passengers}</p>
+      </article>
+    )
+  }
+
   render() {
     const { data, category } = this.props
     if (category === "planets") {
@@ -66,17 +81,7 @@ class Card extends Component {
       return this.peopleDisplay();
 
     } else if (category === "vehicles") {
-      return (
-        <article
-          className="display-card"
-          aria-label="Individual display of results"
-        >
-            <h3>{data.name}</h3>
-              <p>Model: {data.model}</p>
-              <p>Class: {data.vehicle_class}</p>
-              <p>Number of Passengers: {data.passengers}</p>
-        </article>
-      )
+      return this.vehicleDisplay()
     }
     return <h1 className='main-loader'>Loading </h1>
   }

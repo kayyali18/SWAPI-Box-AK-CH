@@ -18,7 +18,7 @@ export const fetchData = async (category) => {
         data = await fetchByURL(url)
         suppData = await fetchPlanetExtras(data)
         filteredData = await filterData(data.results, suppData)
-        localStorage.setItem('people', JSON.stringify(filteredData))
+        localStorage.setItem('planets', JSON.stringify(filteredData))
 
         return filteredData
 
@@ -27,6 +27,12 @@ export const fetchData = async (category) => {
         localStorage.setItem('films', JSON.stringify(data))
 
         return data
+
+      case 'vehicles':
+        data = await fetchByURL(url)
+        localStorage.setItem('vehicles', JSON.stringify([...data.results]))
+
+        return [...data.results]
 
       default:
         console.log('Sorry.')
