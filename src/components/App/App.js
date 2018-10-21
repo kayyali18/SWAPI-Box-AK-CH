@@ -15,29 +15,39 @@ class App extends Component {
       vehicles: [],
       films: null,
       cards: [],
-      currCategory: 'films'
+      currCategory: 'films',
+      mounted: false
     }
+    // let categories = ['planets', 'people', 'vehicles', favourites]
   }
 
   async componentDidMount() {
-    const result = await API.fetchData('films')
-    this.setState({
-      films: result
-    })
-  }
-
-  async componentDidUpdate () {
     const { currCategory } = this.state
-    const result = await API.fetchData(currCategory)
-    this.setState({
-      [currCategory]: result,
-      cards: result
-    })
+    
+    if (!this.state.mounted) {
+      const films = await API.fetchData(currCategory)
+      await this.setState({
+        films,
+        mounted: true
+      })
+    }
   }
 
-  generateCards = query => {
-    const cards = this.state[query]
-    this.setState({ cards, currCategory:query })
+  // async componentDidUpdate (prevState) {
+  //   const { currCategory } = this.state
+  //   if (currCategory !== prevState.currCategory){
+  //     const result = await API.fetchData(currCategory)
+  //     this.setState({
+  //       [currCategory]: result,
+  //       cards: result
+  //     })
+      
+  //   }
+  // }
+
+  generateCards = async query => {
+    const result = await API.fetchData(query)
+    this.setState({ cards:result, currCategory:query })
   };
 
   render() {
@@ -48,14 +58,14 @@ class App extends Component {
         
         <Route path='/main' render={() => (
           <Main
-          peopleSupp={this.state.peopleSupp}
-          planetSupp={this.state.planetSupp}
-          generateCards={this.generateCards}
-          cards={this.state.cards}
-          currCategory={this.state.currCategory}
-        />
+            peopleSupp={this.state.peopleSupp}
+            planetSupp={this.state.planetSupp}
+            generateCards={this.generateCards}
+            cards={this.state.cards}
+            currCategory={this.state.currCategory}
+          />
 
-          )} />
+        )} />
       </div>
     )
   }

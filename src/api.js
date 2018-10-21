@@ -1,87 +1,59 @@
 export const fetchData = async (category) => {
   const url = `https://swapi.co/api/${category}/`
   let data, suppData, filteredData
-  const item = localStorage.getItem(category)
-
-  if (checkStorage(item)) return item
-
+  let item = JSON.parse(localStorage.getItem(category))
+  if (item) return item
+  console.log('didnt return')
   try {
     switch (category) {
       case 'people':
         data = await fetchByURL(url)
         suppData = await fetchPeopleExtras(data)
-        filteredData = filterData(data.results, suppData)
-        JSON.stringify(localStorage.setItem('people', filteredData));
+        filteredData = await filterData(data.results, suppData)
+        localStorage.setItem('people', JSON.stringify(filteredData))
 
-        return filteredData;
+        return filteredData
+
+      case 'planets':
+        data = await fetchByURL(url)
+        suppData = await fetchPlanetExtras(data)
+        filteredData = await filterData(data.results, suppData)
+        localStorage.setItem('people', JSON.stringify(filteredData))
+
+        return filteredData
 
       case 'films':
         data = await fetchByURL(url)
-        JSON.stringify(localStorage.setItem('films', data));
+        localStorage.setItem('films', JSON.stringify(data))
 
-        return data;
+        return data
 
-    default:
-      console.log('Sorry.')
+      default:
+        console.log('Sorry.')
     }
 
-  } catch(error) {
-      console.log(error)
-    }
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-  const filterData = (data, suppData) => {
-    const filteredData = data.map((person, index) => {
-      const combined = {main: person, supp: suppData[index], key: person.name}
+const filterData = (data, suppData) => {
+  const filteredData = data.map((person, index) => {
+    const combined = {main: person, supp: suppData[index], key: person.name}
+    console.log (combined)
+    return combined
+  })
+  return filteredData
+}
 
-      return combined;
-    })
-    return filteredData;
-  }
+export const checkStorage = (item) => {
+  const thing = localStorage.getItem(JSON.parse(item))
 
-  const checkStorage = (item) => {
-    const thing = JSON.parse(localStorage.getItem(item))
-
-    if (thing) return thing
-
-    return false
-  }
-
-
-
-// export const fetchData = async (category, page) => {
-//   try {
-//     const baseURL = `https://swapi.co/api/${category}/?page=${page}`
-//     const response = await fetch(baseURL)
-//     const data = await response.json()
-//     if (category == 'planets') {
-//       const planets = data.results.map (async entry => {
-//         const response = await fetchSupp(entry.residents)
-//         return response
-//       })
-//       return planets
-//     } else if (category == 'people') {
-//       const people = data.results.map (async entry => {
-//         let species = entry.species
-//         let homeworld = entry.homeworld
-//         const params = [homeworld, species]
-//         const response = await fetchSupp(params)
-//         return response 
-//       })
-//       return people
-//     }
-//     return data
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
-
-// export const fetchAllData = (categories) => {
-//   const unresolvedPromises = categories.map(category => {
-//     return fetchData(category.category, category.page)
-//   })
-//   return Promise.all(unresolvedPromises)
-// }
+  if (thing) return thing 
+  
+  console.log(thing)
+  return thing
+}
 
 export const fetchPeopleExtras = async (data) => {
   const extras = data.results.map(async entry => {
@@ -92,6 +64,17 @@ export const fetchPeopleExtras = async (data) => {
     return combined
   })
 
+  return Promise.all(extras)
+}
+
+export const fetchPlanetExtras = async (data) => {
+  const extras = data.results.map(async entry => {
+    let residents = await entry.residents.map(async res => {
+      let name = await fetchByURL(res)
+      return name.name
+    })
+  return Promise.all(residents)
+  })
   return Promise.all(extras)
 }
 
