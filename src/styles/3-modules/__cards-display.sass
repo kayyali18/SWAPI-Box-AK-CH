@@ -1,10 +1,3 @@
-=lightsaber($color)
-  background: mix($color, #fff, 10%)
-  $back: mix($color, #fff, 10%)
-  box-shadow: $back 0px 0px 0px 2px
-  &:hover
-    box-shadow: $color 0px 0px 20px 2px
-
 .l-card-container
   display: grid;
   grid-gap: 25px;
@@ -12,40 +5,91 @@
   margin: 20px;
 
   .display-card
-    text-align: center
     color: white
     list-style-type: none
     border-radius: 15px
     height: 300px
     background-size: cover
     background-position: center
+    font-family: 'Audiowide', cursive
+    font-size: 1.25em
+    display: flex
+    flex-direction: column
+    justify-content: center
+    text-align: center
+
+  .display-card:hover .hide
+    visibility: visible
+
+  .display-card .hide
+    visibility: hidden
 
   .LukeSkywalker
     background-image: url('./assets/imgs/Luke Skywalker.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/Luke Skywalker.jpg') 
+      background-position: center
+      background-size: cover
 
   .C-3PO
     background-image: url('./assets/imgs/C-3PO.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/C-3PO.jpg')
+      background-position: center
+      background-size: cover
 
   .R2-D2
     background-image: url('./assets/imgs/R2-D2.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/R2-D2.jpg')
+      background-position: center
+      background-size: cover
 
   .LeiaOrgana
     background-image: url('./assets/imgs/Leia Organa.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/Leia Organa.jpg')
+      background-position: center
+      background-size: cover
 
   .OwenLars
     background-image: url('./assets/imgs/Owen Lars.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/Owen Lars.jpg')
+      background-position: center
+      background-size: cover
 
   .DarthVader
     background-image: url('./assets/imgs/Darth Vader.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/Darth Vader.jpg')
+      background-position: center
+      background-size: cover
 
   .BeruWhitesunlars
     background-image: url('./assets/imgs/Beru Whitesun lars.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/Beru Whitesun lars.jpg')
+      background-position: center
+      background-size: cover
 
   .R5-D4
     background-image: url('./assets/imgs/R5-D4.jpeg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/R5-D4.jpeg')
+      background-position: center
+      background-size: cover
 
   .BiggsDarklighter
     background-image: url('./assets/imgs/Biggs Darklighter.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/Biggs Darklighter.jpg')
+      background-position: center
+      background-size: cover
 
   .Obi-WanKenobi
     background-image: url('./assets/imgs/Obi-Wan Kenobi.jpg')
+    &:hover
+      background: linear-gradient(rgba(56, 56, 56, .6), rgba(56, 56, 56, .6)), url('./assets/imgs/Obi-Wan Kenobi.jpg')
+      background-position: center
+      background-size: cover

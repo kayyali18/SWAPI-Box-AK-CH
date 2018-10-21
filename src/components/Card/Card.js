@@ -27,17 +27,19 @@ class Card extends Component {
 
   planetsDisplay = () => {
     const { data, category } = this.props
+    const joinedName = (data.main.name).split(' ').join('')
 
     return (
       <article
-        className="display-card"
-        aria-label="Individual display of results"
-      >
+        className={`display-card ${joinedName}`}
+        aria-label="Individual display of results">
+        <div className='card-text hide'>
           <h3>{data.name}</h3>
             <p>Terrain: {data.terrain}</p>
             <p>Population: {data.population}</p>
             <p>Climate: {data.climate}</p>
           {this.whoLivesHere()}
+        </div>
       </article> 
     )
   }
@@ -50,16 +52,20 @@ class Card extends Component {
       <article
         className={`display-card ${joinedName}`}
         aria-label="Individual display of results">
+        <div className='card-text hide'>
           <h2>{data.main.name}</h2>
-            <p>Homeworld: {data.supp.homeworld}</p>
-            <p>Species: {data.supp.species}</p>
-            <p>Population: {data.supp.population}</p>
+          <p>Homeworld: {data.supp.homeworld}</p>
+          <p>Species: {data.supp.species}</p>
+          <p>Population: {data.supp.population}</p>
+        </div>
       </article>
     )
   }
 
   render() {
     const { data, category } = this.props
+    const joinedName = (data.main.name).split(' ').join('')
+
     if (category === "planets") {
       return this.planetsDisplay()
 
@@ -69,13 +75,15 @@ class Card extends Component {
     } else if (category === "vehicles") {
       return (
         <article
-          className="display-card"
+        className={`display-card ${joinedName}`}
           aria-label="Individual display of results"
         >
+          <div className='card-text hide'>
             <h3>{data.name}</h3>
-              <p>Model: {data.model}</p>
-              <p>Class: {data.vehicle_class}</p>
-              <p>Number of Passengers: {data.passengers}</p>
+            <p>Model: {data.model}</p>
+            <p>Class: {data.vehicle_class}</p>
+            <p>Number of Passengers: {data.passengers}</p>
+          </div>
         </article>
       )
     } else return <h1>Loading </h1>
