@@ -483,46 +483,83 @@ nav .menu .menu-btn.yellow:hover {
   display: grid;
   grid-gap: 25px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 20px;
-}
-.l-card-container .display-card {
-  text-align: center;
-  color: white;
-  list-style-type: none;
-  border-radius: 15px;
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-}
-.l-card-container .LukeSkywalker {
-  background-image: url("./assets/imgs/Luke Skywalker.jpg");
-}
-.l-card-container .C-3PO {
-  background-image: url("./assets/imgs/C-3PO.jpg");
-}
-.l-card-container .R2-D2 {
-  background-image: url("./assets/imgs/R2-D2.jpg");
-}
-.l-card-container .LeiaOrgana {
-  background-image: url("./assets/imgs/Leia Organa.jpg");
-}
-.l-card-container .OwenLars {
-  background-image: url("./assets/imgs/Owen Lars.jpg");
-}
-.l-card-container .DarthVader {
-  background-image: url("./assets/imgs/Darth Vader.jpg");
-}
-.l-card-container .BeruWhitesunlars {
-  background-image: url("./assets/imgs/Beru Whitesun lars.jpg");
-}
-.l-card-container .R5-D4 {
-  background-image: url("./assets/imgs/R5-D4.jpeg");
-}
-.l-card-container .BiggsDarklighter {
-  background-image: url("./assets/imgs/Biggs Darklighter.jpg");
-}
-.l-card-container .Obi-WanKenobi {
-  background-image: url("./assets/imgs/Obi-Wan Kenobi.jpg");
-}
+  margin: 20px; }
+  .l-card-container .display-card {
+    color: white;
+    list-style-type: none;
+    border-radius: 15px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Audiowide', cursive;
+    font-size: 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; }
+  .l-card-container .display-card:hover .hide {
+    visibility: visible; }
+  .l-card-container .display-card .hide {
+    visibility: hidden; }
+  .l-card-container .LukeSkywalker {
+    background-image: url("./assets/imgs/Luke Skywalker.jpg"); }
+    .l-card-container .LukeSkywalker:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Luke Skywalker.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .C-3PO {
+    background-image: url("./assets/imgs/C-3PO.jpg"); }
+    .l-card-container .C-3PO:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/C-3PO.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .R2-D2 {
+    background-image: url("./assets/imgs/R2-D2.jpg"); }
+    .l-card-container .R2-D2:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/R2-D2.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .LeiaOrgana {
+    background-image: url("./assets/imgs/Leia Organa.jpg"); }
+    .l-card-container .LeiaOrgana:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Leia Organa.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .OwenLars {
+    background-image: url("./assets/imgs/Owen Lars.jpg"); }
+    .l-card-container .OwenLars:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Owen Lars.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .DarthVader {
+    background-image: url("./assets/imgs/Darth Vader.jpg"); }
+    .l-card-container .DarthVader:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Darth Vader.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .BeruWhitesunlars {
+    background-image: url("./assets/imgs/Beru Whitesun lars.jpg"); }
+    .l-card-container .BeruWhitesunlars:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Beru Whitesun lars.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .R5-D4 {
+    background-image: url("./assets/imgs/R5-D4.jpeg"); }
+    .l-card-container .R5-D4:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/R5-D4.jpeg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .BiggsDarklighter {
+    background-image: url("./assets/imgs/Biggs Darklighter.jpg"); }
+    .l-card-container .BiggsDarklighter:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Biggs Darklighter.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .Obi-WanKenobi {
+    background-image: url("./assets/imgs/Obi-Wan Kenobi.jpg"); }
+    .l-card-container .Obi-WanKenobi:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Obi-Wan Kenobi.jpg");
+      background-position: center;
+      background-size: cover; }
 
 /*# sourceMappingURL=App.css.map */
