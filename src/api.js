@@ -2,6 +2,9 @@ export const fetchData = async (category) => {
   const url = `https://swapi.co/api/${category}/`
   let data, suppData, filteredData
   let item = JSON.parse(localStorage.getItem(category))
+  let favs = JSON.parse(localStorage.getItem('favourites'))
+  if (favs == null) localStorage.setItem('favourites', JSON.stringify([]))
+
   if (item) return item
   console.log('didnt return')
   try {
@@ -30,9 +33,10 @@ export const fetchData = async (category) => {
 
       case 'vehicles':
         data = await fetchByURL(url)
-        localStorage.setItem('vehicles', JSON.stringify([...data.results]))
+        filteredData = addKey([...data.results], category)
+        localStorage.setItem('vehicles', JSON.stringify(filteredData))
 
-        return [...data.results]
+        return filteredData
 
       default:
         console.log('Sorry.')
@@ -41,6 +45,12 @@ export const fetchData = async (category) => {
   } catch (error) {
     console.log(error)
   }
+}
+
+const addKey = (data, category) => {
+  let newData = []
+  data.forEach(entry => newData.push({currCategory: category, key: entry.name, main: entry}))
+  return newData
 }
 
 const filterData = (data, suppData) => {
@@ -94,4 +104,13 @@ export const fetchByURL = async (url) => {
   } catch (error) {
     console.log(error)
   }
+}
+
+export const getFavs = () => {
+  let favs = JSON.parse(localStorage.getItem('favourites'))
+  return favs
+}
+
+export const updateFav = (newFavs) => {
+  localStorage.setItem('favourites', JSON.stringify(newFavs))
 }

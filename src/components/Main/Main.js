@@ -11,19 +11,26 @@ import * as API from './../../api'
 class Main extends Component {
   
   render() { 
-    const {generateCards, cards, currCategory} = this.props
+    const {generateCards, cards, currCategory, favCard, unFavCard} = this.props
     return (
       <main className="l-main main-loader">
         <Route path='/main' render={() => 
           (
             <NavBar generateCards={generateCards} />
-            )
+          )
         } />
-        
+        <NavLink to="/">
+          <img
+            className="nav-logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
+            alt="Star Wars Logo" />
+        </NavLink>
         <Route path={`/main/${currCategory}`} render={() => {
           return (<CardContainer
             cards={cards}
             category={currCategory}
+            favCard={favCard}
+            unFavCard={unFavCard}
           />)
         }} />
       </main>
@@ -34,9 +41,8 @@ class Main extends Component {
 export default Main
 
 Main.propTypes = {
-  people: PropTypes.object,
-  planets: PropTypes.object,
-  vehicles: PropTypes.object,
+  favCard: PropTypes.func,
+  unFavCard: PropTypes.func,
   generateCards: PropTypes.func,
   cards: PropTypes.array,
   currCategory: PropTypes.string

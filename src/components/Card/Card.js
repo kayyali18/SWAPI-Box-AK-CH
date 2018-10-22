@@ -1,25 +1,35 @@
 import React, { Component } from "react"
 import PropType from "prop-types"
 
-
 class Card extends Component {
   constructor(props) {
     super(props)
     this.names = []
     this.state = {
-      isFavourited: false,
+      isFav: false,
       stateSet: false,
       residents: []
     }
   }
+
+  handleFav = (data) => {
+    const {isFav} = this.state
+    const {favCard, unFavCard} = this.props
+
+    if (isFav) unFavCard(data)
+    else favCard(data)
+    this.setState({isFav: !isFav})
+  }
   
   whoLivesHere = () => {
     const { data } = this.props
-    if (data.supp.length == 0) return (<li>No known residents </li>)
     const names = data.supp.map(res => <li className='resident' key={`${res}`}>{res}</li>)
+
+    if (data.supp.length == 0) return (<li>No known residents </li>)
+
     return (
       <ul>
-        {names}
+        { names }
       </ul>
     )
   }
@@ -31,12 +41,14 @@ class Card extends Component {
     return (
       <article
         className={`display-card ${joinedName}`}
-        aria-label="Individual display of results">
+        aria-label="Individual display of results"
+        value={this.state.isFav}
+        onClick={() => this.handleFav(data)}>
         <div className='card-text hide'>
           <h3>{data.main.name}</h3>
-            <p>Terrain: {data.main.terrain}</p>
-            <p>Population: {data.main.population}</p>
-            <p>Climate: {data.main.climate}</p>
+          <p>Terrain: {data.main.terrain}</p>
+          <p>Population: {data.main.population}</p>
+          <p>Climate: {data.main.climate}</p>
           {this.whoLivesHere()}
         </div>
       </article> 
@@ -50,7 +62,8 @@ class Card extends Component {
     return (
       <article
         className={`display-card ${joinedName}`}
-        aria-label="Individual display of results">
+        aria-label="Individual display of results"
+        onClick={() => this.handleFav(data)}>
         <div className='card-text hide'>
           <h2>{data.main.name}</h2>
           <p>Homeworld: {data.supp.homeworld}</p>
@@ -62,22 +75,44 @@ class Card extends Component {
   }
 
   vehicleDisplay = () => {
-    const {data} = this.props
-    const joinedName = (data.name).split(' ').join('')
+    const { name, model, vehicle_class, passengers } = this.props.data.main
+    let joinedName = (this.props.data.key).split(' ').join('')
+    joinedName = joinedName.replace(/\//g,'')
+
 
     return (
       <article
         className={`display-card ${joinedName}`}
         aria-label="Individual display of results"
+        onClick={() => this.handleFav(this.props.data)}
       >
-          <div className='card-text hide'>
-            <h3>{data.name}</h3>
-            <p>Model: {data.model}</p>
-            <p>Class: {data.vehicle_class}</p>
-            <p>Number of Passengers: {data.passengers}</p>
-          </div>
+        <div className='card-text hide'>
+          <h3>{name}</h3>
+          <p>Model: {model}</p>
+          <p>Class: {vehicle_class}</p>
+          <p>Number of Passengers: {passengers}</p>
+        </div>
       </article>
     )
+  }
+
+  favouritesDisplay = () => {
+    const { currCategory } = this.props.data
+    let card;
+
+    if (currCategory === 'people') {
+      card = this.peopleDisplay()
+    }
+
+    if (currCategory === 'planets') {
+      card = this.planetsDisplay()
+    }
+
+    if (currCategory === 'vehicles') {
+      card = this.vehicleDisplay()
+    }
+
+    return card 
   }
 
   render() {
@@ -87,16 +122,20 @@ class Card extends Component {
       return this.planetsDisplay()
 
     } else if (category === "people") {
-      return this.peopleDisplay();
+      return this.peopleDisplay()
 
     } else if (category === "vehicles") {
       return this.vehicleDisplay()
+    
+    } else if (category === "favourites") {
+      return this.favouritesDisplay()
     }
-    return <h1 className='main-loader'>Loading </h1>
   }
 }
 
 Card.propType = {
+  favCard: PropType.func,
+  unFavCard: PropType.func,
   data: PropType.object,
   category: PropType.string,
   planetSupp: PropType.object,

@@ -299,6 +299,18 @@ textarea {
   .l-app .l-landing {
     height: 100vh;
     text-align: center; }
+  .l-app .l-main {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "nav logo" "nav card-container" "nav card-container" "nav card-container"; }
+    .l-app .l-main .l-nav {
+      grid-area: nav; }
+    .l-app .l-main a {
+      grid-area: logo;
+      margin: auto; }
+    .l-app .l-main .l-card-container {
+      grid-area: card-container; }
 
 .m-landing {
   overflow: hidden; }
@@ -341,7 +353,8 @@ textarea {
     transform: rotateX(25deg) translateZ(-2500px); } }
 
 .nav-logo {
-  height: 50px; }
+  padding: 30px;
+  width: 400px; }
 
 .nav-container {
   display: flex; }
@@ -350,13 +363,15 @@ nav {
   font-family: 'Audiowide', cursive;
   color: white;
   position: relative;
-  transition: transform 0.5s ease; }
+  transition: transform 0.5s ease;
+  width: 300px; }
   nav .menu {
-    width: 200px;
-    width: 100vw;
+    width: 300px;
     list-style: none;
     padding: 0;
-    margin: 0; }
+    margin: 255px 0 0 0;
+    position: sticky;
+    top: 20px; }
     nav .menu .menu-btn {
       background: #ecfcff;
       box-shadow: #4df 0px 0px 0px 2px;
@@ -375,7 +390,7 @@ nav {
         box-shadow: #4df 0px 0px 20px 2px;
         text-shadow: #4df 0px 0px 6px, #4df 0px 0px 10px; }
       nav .menu .menu-btn:hover {
-        width: 80%;
+        width: 100%;
         color: black; }
       nav .menu .menu-btn a {
         text-decoration: none;
@@ -407,9 +422,6 @@ nav {
         nav .menu .menu-btn.yellow:hover {
           box-shadow: #FF0 0px 0px 20px 2px;
           text-shadow: #FF0 0px 0px 6px, #FF0 0px 0px 10px; }
-
-#logo-parent {
-  text-align: center; }
 
 .l-card-container {
   display: grid;
@@ -553,5 +565,66 @@ nav {
     background-image: url("./assets/imgs/Geonosis.jpeg"); }
     .l-card-container .Geonosis:hover {
       background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Geonosis.jpeg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .SandCrawler {
+    background-image: url("./assets/imgs/Sand Crawler.jpeg"); }
+    .l-card-container .SandCrawler:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Sand Crawler.jpeg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .T-16skyhopper {
+    background-color: #FFF;
+    background-image: url("./assets/imgs/T-16 skyhopper.jpg"); }
+    .l-card-container .T-16skyhopper:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/T-16 skyhopper.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .X-34landspeeder {
+    background-image: url("./assets/imgs/X-34 landspeeder.jpeg"); }
+    .l-card-container .X-34landspeeder:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/X-34 landspeeder.jpeg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .TIELNstarfighter {
+    background-image: url("./assets/imgs/TIELN starfighter.jpg"); }
+    .l-card-container .TIELNstarfighter:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/TIELN starfighter.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .Snowspeeder {
+    background-image: url("./assets/imgs/Snowspeeder.jpeg"); }
+    .l-card-container .Snowspeeder:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Snowspeeder.jpeg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .TIEbomber {
+    background-image: url("./assets/imgs/TIE bomber.jpeg"); }
+    .l-card-container .TIEbomber:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/TIE bomber.jpeg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .AT-AT {
+    background-image: url("./assets/imgs/AT-AT.jpg"); }
+    .l-card-container .AT-AT:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/AT-AT.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .AT-ST {
+    background-image: url("./assets/imgs/AT-ST.jpeg"); }
+    .l-card-container .AT-ST:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/AT-ST.jpeg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .StormIVTwin-Podcloudcar {
+    background-image: url("./assets/imgs/Storm IV Twin-Pod cloud car.jpg"); }
+    .l-card-container .StormIVTwin-Podcloudcar:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Storm IV Twin-Pod cloud car.jpg");
+      background-position: center;
+      background-size: cover; }
+  .l-card-container .Sailbarge {
+    background-image: url("./assets/imgs/Sail barge.jpg"); }
+    .l-card-container .Sailbarge:hover {
+      background: linear-gradient(rgba(56, 56, 56, 0.6), rgba(56, 56, 56, 0.6)), url("./assets/imgs/Sail barge.jpg");
       background-position: center;
       background-size: cover; }
