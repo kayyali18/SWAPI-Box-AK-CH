@@ -102,7 +102,9 @@ export const fetchByURL = async url => {
     const data = await response.json()
 
     return data
-  } catch (error) {}
+  } catch (error) {
+    return error
+  }
 }
 
 export const getFavs = () => {
