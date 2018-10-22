@@ -7,10 +7,19 @@ class Card extends Component {
     super(props)
     this.names = []
     this.state = {
-      isFavourited: false,
+      isFav: false,
       stateSet: false,
       residents: []
     }
+  }
+
+
+  handleFav = (data) => {
+    const {isFav} = this.state
+    const {favCard, unFavCard} = this.props
+    if (isFav) unFavCard(data)
+    else favCard(data)
+    this.setState({isFav: !isFav})
   }
   
   whoLivesHere = () => {
@@ -31,12 +40,14 @@ class Card extends Component {
     return (
       <article
         className={`display-card ${joinedName}`}
-        aria-label="Individual display of results">
+        aria-label="Individual display of results"
+        value={this.state.isFav}
+        onClick={() => this.handleFav(data)}>
         <div className='card-text hide'>
           <h3>{data.main.name}</h3>
-            <p>Terrain: {data.main.terrain}</p>
-            <p>Population: {data.main.population}</p>
-            <p>Climate: {data.main.climate}</p>
+          <p>Terrain: {data.main.terrain}</p>
+          <p>Population: {data.main.population}</p>
+          <p>Climate: {data.main.climate}</p>
           {this.whoLivesHere()}
         </div>
       </article> 
@@ -50,7 +61,8 @@ class Card extends Component {
     return (
       <article
         className={`display-card ${joinedName}`}
-        aria-label="Individual display of results">
+        aria-label="Individual display of results"
+        onClick={() => this.handleFav(data)}>
         <div className='card-text hide'>
           <h2>{data.main.name}</h2>
           <p>Homeworld: {data.supp.homeworld}</p>
@@ -69,13 +81,14 @@ class Card extends Component {
       <article
         className={`display-card ${joinedName}`}
         aria-label="Individual display of results"
+        onClick={() => this.handleFav(data)}
       >
-          <div className='card-text hide'>
-            <h3>{data.name}</h3>
-            <p>Model: {data.model}</p>
-            <p>Class: {data.vehicle_class}</p>
-            <p>Number of Passengers: {data.passengers}</p>
-          </div>
+        <div className='card-text hide'>
+          <h3>{data.name}</h3>
+          <p>Model: {data.model}</p>
+          <p>Class: {data.vehicle_class}</p>
+          <p>Number of Passengers: {data.passengers}</p>
+        </div>
       </article>
     )
   }
@@ -87,7 +100,7 @@ class Card extends Component {
       return this.planetsDisplay()
 
     } else if (category === "people") {
-      return this.peopleDisplay();
+      return this.peopleDisplay()
 
     } else if (category === "vehicles") {
       return this.vehicleDisplay()
@@ -97,6 +110,8 @@ class Card extends Component {
 }
 
 Card.propType = {
+  favCard: PropType.func,
+  unFavCard: PropType.func,
   data: PropType.object,
   category: PropType.string,
   planetSupp: PropType.object,

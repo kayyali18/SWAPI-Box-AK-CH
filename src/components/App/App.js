@@ -13,6 +13,7 @@ class App extends Component {
       planets: [],
       people: [],
       vehicles: [],
+      favourites: [],
       films: null,
       cards: [],
       currCategory: 'films',
@@ -25,30 +26,36 @@ class App extends Component {
     const { currCategory } = this.state
     
     if (!this.state.mounted) {
+      const favourites = API.getFavs()//although not async, method put here cuz if process is slow await below will allow time for it
       const films = await API.fetchData(currCategory)
       await this.setState({
         films,
+        favourites,
         mounted: true
       })
     }
   }
 
-  // async componentDidUpdate (prevState) {
-  //   const { currCategory } = this.state
-  //   if (currCategory !== prevState.currCategory){
-  //     const result = await API.fetchData(currCategory)
-  //     this.setState({
-  //       [currCategory]: result,
-  //       cards: result
-  //     })
-      
-  //   }
-  // }
 
   generateCards = async query => {
+    const favourites = API.getFavs()//this is placed here for same reason
     const result = await API.fetchData(query)
-    this.setState({ cards: result, currCategory:query })
+    this.setState({ cards: result, currCategory:query, favourites })
   };
+
+  favCard = (card) => {
+    const { favourites, currCategory } = this.state
+    let newCard = {...card, currCategory}
+    this.setState({favourites: [...favourites, newCard]})
+    
+  }
+
+  unFavCard = (card) => {
+    const { favourites, currCategory } = this.state
+    let newFav = favourites.filter(entry => entry.key !== card.key) //possible error
+    this.setState({favourites: newFav})
+
+  }
 
   render() {
     if (!this.state.films) return null
@@ -58,8 +65,8 @@ class App extends Component {
         
         <Route path='/main' render={() => (
           <Main
-            peopleSupp={this.state.peopleSupp}
-            planetSupp={this.state.planetSupp}
+            favCard={this.favCard}
+            unFavCard={this.unFavCard}
             generateCards={this.generateCards}
             cards={this.state.cards}
             currCategory={this.state.currCategory}

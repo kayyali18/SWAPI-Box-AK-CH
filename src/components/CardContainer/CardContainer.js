@@ -12,6 +12,8 @@ const CardContainer = (props) => {
           data={card}
           key={index}
           category={props.category}
+          favCard={props.favCard}
+          unFavCard={props.unFavCard}
         />
       )
     })
@@ -27,11 +29,9 @@ const CardContainer = (props) => {
 }
 
 CardContainer.propTypes = {
-  people: PropTypes.object,
-  planets: PropTypes.object,
-  vehicles: PropTypes.object,
-  planetSupp: PropTypes.object,
-  peopleSupp: PropTypes.object
+  favCard: PropTypes.func,
+  unFavCard: PropTypes.func,
+  category: PropTypes.string
 }
 
 export default CardContainer

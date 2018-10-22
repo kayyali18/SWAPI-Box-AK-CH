@@ -2,6 +2,10 @@ export const fetchData = async (category) => {
   const url = `https://swapi.co/api/${category}/`
   let data, suppData, filteredData
   let item = JSON.parse(localStorage.getItem(category))
+
+  //set favourites in localStorage
+  localStorage.setItem('favourites', JSON.stringify([]))
+
   if (item) return item
   console.log('didnt return')
   try {
@@ -94,4 +98,9 @@ export const fetchByURL = async (url) => {
   } catch (error) {
     console.log(error)
   }
+}
+
+export const getFavs = () => {
+  let favs = JSON.parse(localStorage.getItem('favourites'))
+  return favs
 }

@@ -11,7 +11,7 @@ import * as API from './../../api'
 class Main extends Component {
   
   render() { 
-    const {generateCards, cards, currCategory} = this.props
+    const {generateCards, cards, currCategory, favCard, unFavCard} = this.props
     return (
       <main className="l-main main-loader">
         <Route path='/main' render={() => 
@@ -24,6 +24,8 @@ class Main extends Component {
           return (<CardContainer
             cards={cards}
             category={currCategory}
+            favCard={favCard}
+            unFavCard={unFavCard}
           />)
         }} />
       </main>
@@ -34,9 +36,8 @@ class Main extends Component {
 export default Main
 
 Main.propTypes = {
-  people: PropTypes.object,
-  planets: PropTypes.object,
-  vehicles: PropTypes.object,
+  favCard: PropTypes.func,
+  unFavCard: PropTypes.func,
   generateCards: PropTypes.func,
   cards: PropTypes.array,
   currCategory: PropTypes.string
