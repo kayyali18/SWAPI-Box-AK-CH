@@ -9,6 +9,7 @@ const CardContainer = (props) => {
     const cards = props.cards.map((card, index) => {
       return (
         <Card
+          favourites={props.favourites}
           data={card}
           key={index}
           category={props.category}

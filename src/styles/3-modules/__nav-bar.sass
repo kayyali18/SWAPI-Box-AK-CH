@@ -6,7 +6,8 @@
     text-shadow: $color 0px 0px 6px, $color 0px 0px 10px
   
 .nav-logo
-  height: 50px
+  padding: 30px
+  width: 400px
 
 .nav-container
   display: flex
@@ -16,14 +17,17 @@ nav
   color: white 
   position: relative 
   transition: transform 0.5s ease 
+  width: 300px
 
   .menu  
-    width: 100%
+    width: 300px
     list-style: none 
     padding: 0 
-    margin: 0 
+    margin: 255px 0 0 0
+    position: sticky
+    top: 20px
 
-    .menu-btn  
+    .menu-btn
       +lightsaber(#4df) 
       font-size: 1.75em 
       line-height: 16pt
@@ -37,7 +41,7 @@ nav
       border-radius: 0px 100px 100px 0px 
       transition: width 0.5s ease, padding 0.5s ease, color 0.2s ease, text-shadow 0.5s ease 
       &:hover  
-        width: 80% 
+        width: 100% 
         color:  black 
        
       a
@@ -47,7 +51,7 @@ nav
         width: 200px
         padding-left: 16px
        
-      &.green  
+      &.green
         @include lightsaber(#0F0) 
        
       &.red  
@@ -60,6 +64,5 @@ nav
         @include lightsaber(#FF0) 
        
 #logo-parent
-  text-align: center
 
 // font-family: 'Audiowide', cursive

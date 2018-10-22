@@ -40,7 +40,7 @@ class App extends Component {
   generateCards = async query => {
     const favourites = API.getFavs()//this is placed here for same reason
     const result = await API.fetchData(query)
-    this.setState({ cards: result, currCategory:query, favourites })
+    this.setState({ cards: result, currCategory: query, favourites })
   };
 
   favCard = (card) => {
@@ -67,6 +67,7 @@ class App extends Component {
         
         <Route path='/main' render={() => (
           <Main
+            favourites={this.state.favourites}
             favCard={this.favCard}
             unFavCard={this.unFavCard}
             generateCards={this.generateCards}

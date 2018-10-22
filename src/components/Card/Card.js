@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import PropType from "prop-types"
 
-
 class Card extends Component {
   constructor(props) {
     super(props)
@@ -13,10 +12,10 @@ class Card extends Component {
     }
   }
 
-
   handleFav = (data) => {
     const {isFav} = this.state
     const {favCard, unFavCard} = this.props
+
     if (isFav) unFavCard(data)
     else favCard(data)
     this.setState({isFav: !isFav})
@@ -24,11 +23,13 @@ class Card extends Component {
   
   whoLivesHere = () => {
     const { data } = this.props
-    if (data.supp.length == 0) return (<li>No known residents </li>)
     const names = data.supp.map(res => <li className='resident' key={`${res}`}>{res}</li>)
+
+    if (data.supp.length == 0) return (<li>No known residents </li>)
+
     return (
       <ul>
-        {names}
+        { names }
       </ul>
     )
   }
@@ -74,8 +75,8 @@ class Card extends Component {
   }
 
   vehicleDisplay = () => {
-    const {data} = this.props
-    let joinedName = (data.key).split(' ').join('')
+    const { name, model, vehicle_class, passengers } = this.props.data.main
+    let joinedName = (this.props.data.key).split(' ').join('')
     joinedName = joinedName.replace(/\//g,'')
 
 
@@ -83,16 +84,35 @@ class Card extends Component {
       <article
         className={`display-card ${joinedName}`}
         aria-label="Individual display of results"
-        onClick={() => this.handleFav(data)}
+        onClick={() => this.handleFav(this.props.data)}
       >
         <div className='card-text hide'>
-          <h3>{data.main.name}</h3>
-          <p>Model: {data.main.model}</p>
-          <p>Class: {data.main.vehicle_class}</p>
-          <p>Number of Passengers: {data.main.passengers}</p>
+          <h3>{name}</h3>
+          <p>Model: {model}</p>
+          <p>Class: {vehicle_class}</p>
+          <p>Number of Passengers: {passengers}</p>
         </div>
       </article>
     )
+  }
+
+  favouritesDisplay = () => {
+    const { currCategory } = this.props.data
+    let card;
+
+    if (currCategory === 'people') {
+      card = this.peopleDisplay()
+    }
+
+    if (currCategory === 'planets') {
+      card = this.planetsDisplay()
+    }
+
+    if (currCategory === 'vehicles') {
+      card = this.vehicleDisplay()
+    }
+
+    return card 
   }
 
   render() {
@@ -106,8 +126,10 @@ class Card extends Component {
 
     } else if (category === "vehicles") {
       return this.vehicleDisplay()
+    
+    } else if (category === "favourites") {
+      return this.favouritesDisplay()
     }
-    return <h1 className='main-loader'>Loading </h1>
   }
 }
 
