@@ -7,17 +7,18 @@
     height: 100vh
     text-align: center
 
-  // .l-main
-  // grid-template-columns: 150px 1fr;
-  // grid-template-rows: auto;
-  // grid-template-areas: 
-  //   "nav card-container"
-  //   "nav card-container"
-  //   "nav card-container"
-  //   "nav card-container"
+  .l-main
+    display: grid
+    grid-template-columns: 150px 1fr
+    grid-template-rows: auto
+    grid-template-areas: "nav logo" "nav card-container" "nav card-container" "nav card-container"
+    .l-nav
+      grid-area: nav
 
-  //   .l-nav
-  //     grid-area: nav
+    a
+      grid-area: logo
+      margin: auto
 
-  //   .l-card-container
-  //     grid-area: card-container
+
+    .l-card-container
+      grid-area: card-container

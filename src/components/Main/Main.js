@@ -17,9 +17,14 @@ class Main extends Component {
         <Route path='/main' render={() => 
           (
             <NavBar generateCards={generateCards} />
-            )
+          )
         } />
-        
+        <NavLink to="/">
+          <img
+            className="nav-logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
+            alt="Star Wars Logo" />
+        </NavLink>
         <Route path={`/main/${currCategory}`} render={() => {
           return (<CardContainer
             cards={cards}

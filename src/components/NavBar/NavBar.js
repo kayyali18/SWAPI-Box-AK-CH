@@ -22,14 +22,6 @@ class NavBar extends Component {
       <div className='nav-container l-nav'>
         <nav>
           <ul className="l-menu menu">
-            <li id='logo-parent'>
-              <NavLink to="/">
-                <img
-                  className="nav-logo"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
-                  alt="Star Wars Logo" />
-              </NavLink>
-            </li>
             <li className='menu-btn'>
               <NavLink to="/">Home</NavLink>
             </li>
