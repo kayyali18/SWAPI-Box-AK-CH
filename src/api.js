@@ -33,10 +33,10 @@ export const fetchData = async (category) => {
 
       case 'vehicles':
         data = await fetchByURL(url)
-        filteredData = addKey([...data.results])
+        filteredData = addKey([...data.results], category)
         localStorage.setItem('vehicles', JSON.stringify(filteredData))
 
-        return [...data.results]
+        return filteredData
 
       default:
         console.log('Sorry.')
@@ -47,10 +47,10 @@ export const fetchData = async (category) => {
   }
 }
 
-const addKey = (data) => {
-  data.forEach(entry => entry.key = entry.name)
-
-  return data
+const addKey = (data, category) => {
+  let newData = []
+  data.forEach(entry => newData.push({currCategory: category, key: entry.name, main: entry}))
+  return newData
 }
 
 const filterData = (data, suppData) => {

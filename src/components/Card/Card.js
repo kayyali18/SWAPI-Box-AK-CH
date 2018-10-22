@@ -75,7 +75,7 @@ class Card extends Component {
 
   vehicleDisplay = () => {
     const {data} = this.props
-    let joinedName = (data.name).split(' ').join('')
+    let joinedName = (data.key).split(' ').join('')
     joinedName = joinedName.replace(/\//g,'')
 
 
@@ -86,10 +86,10 @@ class Card extends Component {
         onClick={() => this.handleFav(data)}
       >
         <div className='card-text hide'>
-          <h3>{data.name}</h3>
-          <p>Model: {data.model}</p>
-          <p>Class: {data.vehicle_class}</p>
-          <p>Number of Passengers: {data.passengers}</p>
+          <h3>{data.main.name}</h3>
+          <p>Model: {data.main.model}</p>
+          <p>Class: {data.main.vehicle_class}</p>
+          <p>Number of Passengers: {data.main.passengers}</p>
         </div>
       </article>
     )
