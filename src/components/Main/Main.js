@@ -14,7 +14,7 @@ class Main extends Component {
     const {generateCards, cards, currCategory, favCard, unFavCard} = this.props
     return (
       <main className="l-main main-loader">
-        <Route path='/main' render={() => 
+        <Route path='/' render={() => 
           (
             <NavBar generateCards={generateCards} />
           )
@@ -25,7 +25,7 @@ class Main extends Component {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Star_Wars_Yellow_Logo.svg/634px-Star_Wars_Yellow_Logo.svg.png"
             alt="Star Wars Logo" />
         </NavLink>
-        <Route path={`/main/${currCategory}`} render={() => {
+        <Route path={`/${currCategory}`} render={() => {
           return (<CardContainer
             cards={cards}
             category={currCategory}
