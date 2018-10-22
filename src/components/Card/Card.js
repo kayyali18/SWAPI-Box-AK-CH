@@ -75,7 +75,9 @@ class Card extends Component {
 
   vehicleDisplay = () => {
     const {data} = this.props
-    const joinedName = (data.name).split(' ').join('')
+    let joinedName = (data.name).split(' ').join('')
+    joinedName = joinedName.replace(/\//g,'')
+
 
     return (
       <article
