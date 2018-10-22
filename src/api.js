@@ -3,9 +3,6 @@ export const fetchData = async (category) => {
   let data, suppData, filteredData
   let item = JSON.parse(localStorage.getItem(category))
 
-  //set favourites in localStorage
-  localStorage.setItem('favourites', JSON.stringify([]))
-
   if (item) return item
   console.log('didnt return')
   try {
@@ -103,4 +100,8 @@ export const fetchByURL = async (url) => {
 export const getFavs = () => {
   let favs = JSON.parse(localStorage.getItem('favourites'))
   return favs
+}
+
+export const updateFav = (newFavs) => {
+  localStorage.setItem('favourites', JSON.stringify(newFavs))
 }

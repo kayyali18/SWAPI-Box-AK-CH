@@ -46,13 +46,15 @@ class App extends Component {
   favCard = (card) => {
     const { favourites, currCategory } = this.state
     let newCard = {...card, currCategory}
+    API.updateFav([...favourites, newCard])
     this.setState({favourites: [...favourites, newCard]})
     
   }
 
   unFavCard = (card) => {
-    const { favourites, currCategory } = this.state
+    const { favourites } = this.state
     let newFav = favourites.filter(entry => entry.key !== card.key) //possible error
+    API.updateFav(newFav)
     this.setState({favourites: newFav})
 
   }
