@@ -32,7 +32,8 @@ const CardContainer = (props) => {
 CardContainer.propTypes = {
   favCard: PropTypes.func,
   unFavCard: PropTypes.func,
-  category: PropTypes.string
+  category: PropTypes.string,
+  cards: PropTypes.array
 }
 
 export default CardContainer

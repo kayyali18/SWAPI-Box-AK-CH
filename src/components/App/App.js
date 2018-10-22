@@ -31,6 +31,8 @@ class App extends Component {
       await this.setState({
         films,
         favourites,
+        cards: favourites,
+        currCategory: "favourites",
         mounted: true
       })
     }
@@ -63,9 +65,9 @@ class App extends Component {
     if (!this.state.films) return null
     return (
       <div className="l-app">
-        <Route exact path='/' render={() => <Landing films={this.state.films}/> } />
+        <Route path='/' render={() => <Landing films={this.state.films}/> } />
         
-        <Route path='/main' render={() => (
+        <Route path='/' render={() => (
           <Main
             favourites={this.state.favourites}
             favCard={this.favCard}
